@@ -7,8 +7,18 @@ gem 'rails', '3.0.3'
 
 gem 'sqlite3-ruby', :require => 'sqlite3'
 
+gem 'devise', '~> 1.2.1'
+
 group :development do
   gem 'heroku'
+end
+
+group :test do
+  gem 'redgreen'
+  gem 'machinist'
+  gem 'faker'
+  gem 'mocha'
+  gem 'shoulda'
 end
 
 # Use unicorn as the web server
