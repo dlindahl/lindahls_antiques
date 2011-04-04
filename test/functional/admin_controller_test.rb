@@ -3,7 +3,7 @@ require 'test_helper'
 class AdminControllerTest < ActionController::TestCase
   include Devise::TestHelpers
 
-  context "With a signed in User" do
+  context "As a User" do
     context "with Admin privileges," do
       setup do
         @user = User.make(:password => 'foobarbaz', :admin => true)
