@@ -29,6 +29,8 @@ class AntiqueTest < ActiveSupport::TestCase
   should_not allow_value(nil).for(:height)
   should_not allow_value(nil).for(:depth)
 
+  should have_many(:photos)
+
   context "A saved Antique" do
     subject { Antique.make }
     should validate_uniqueness_of(:sku)

@@ -7,4 +7,6 @@ class Antique < ActiveRecord::Base
   validates_uniqueness_of :sku, :allow_blank => false
   validates_format_of :sku, :with => /\w{3}-\d+\w?\Z/, :allow_blank => false
 
+  has_many :photos
+
 end

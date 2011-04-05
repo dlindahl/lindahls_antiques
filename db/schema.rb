@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110404215828) do
+ActiveRecord::Schema.define(:version => 20110405001838) do
 
   create_table "antiques", :force => true do |t|
     t.string   "name"
@@ -20,6 +20,18 @@ ActiveRecord::Schema.define(:version => 20110404215828) do
     t.float    "height"
     t.float    "depth"
     t.float    "weight"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "photos", :force => true do |t|
+    t.integer  "antique_id"
+    t.integer  "width"
+    t.integer  "height"
+    t.string   "title"
+    t.string   "url"
+    t.string   "source"
+    t.string   "size"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
