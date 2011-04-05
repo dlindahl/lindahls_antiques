@@ -3,7 +3,7 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 
 require 'machinist/active_record'
-require 'blueprints'
+require File.dirname(__FILE__) + '/blueprints'
 
 class ActiveSupport::TestCase
 end
