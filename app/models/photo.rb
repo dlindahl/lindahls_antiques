@@ -2,7 +2,7 @@ class Photo < ActiveRecord::Base
 
   belongs_to :antique
 
-  validates_presence_of :title, :source, :url, :allow_blank => false
+  validates_presence_of :title, :page, :url, :allow_blank => false
   validates_numericality_of :width, :height, :allow_blank => false
 
   # This is actually missing Medium 640, but I'm unsure how to reference it

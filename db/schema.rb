@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(:version => 20110405001838) do
     t.integer  "height"
     t.string   "title"
     t.string   "url"
-    t.string   "source"
+    t.string   "page"
     t.string   "size"
     t.datetime "created_at"
     t.datetime "updated_at"

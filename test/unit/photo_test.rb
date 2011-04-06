@@ -8,10 +8,10 @@ class PhotoTest < ActiveSupport::TestCase
   should have_db_column(:title)
   should have_db_column(:size)
   should have_db_column(:url)
-  should have_db_column(:source)
+  should have_db_column(:page)
 
   should validate_presence_of(:title)
-  should validate_presence_of(:source)
+  should validate_presence_of(:page)
   should validate_presence_of(:url)
 
   should validate_numericality_of(:width)

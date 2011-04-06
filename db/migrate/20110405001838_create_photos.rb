@@ -2,7 +2,7 @@ class CreatePhotos < ActiveRecord::Migration
   def self.up
     create_table :photos do |t|
       t.integer :antique_id, :width, :height
-      t.string :title, :url, :source, :size
+      t.string :title, :url, :page, :size
 
       t.timestamps
     end
