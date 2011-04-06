@@ -6,4 +6,5 @@ require 'machinist/active_record'
 require File.dirname(__FILE__) + '/blueprints'
 
 class ActiveSupport::TestCase
+  setup { Sham.reset }
 end

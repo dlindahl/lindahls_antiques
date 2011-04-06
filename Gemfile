@@ -8,6 +8,7 @@ gem 'rails', '3.0.3'
 gem 'sqlite3-ruby', :require => 'sqlite3'
 
 gem 'devise', '~> 1.2.1'
+gem 'fleakr', '~> 0.7.1'
 
 group :development do
   gem 'heroku'

@@ -36,4 +36,37 @@ class AntiqueTest < ActiveSupport::TestCase
     should validate_uniqueness_of(:sku)
   end
 
+  context "An Antique" do
+    subject { Antique.make_unsaved }
+    should "create a Flickr tag from its SKU" do
+      assert_equal "a123b", Antique.new(:sku => 'A-123B').sku_as_tag
+    end
+    context "with photos" do
+      setup do
+        @antique = subject
+        @antique.photos = [ Photo.make_unsaved, Photo.make_unsaved ]
+      end
+      context "that are refreshed" do
+        setup do
+          @old_photos = @antique.photos.clone
+
+          @fleakr_photos = [ stub('fleakr_photo', Photo.make_unsaved.attributes) ]
+
+          Photo.expects(:fetch).returns( @fleakr_photos )
+
+          @antique.photos.refresh!
+        end
+        should "add the new photos" do
+          assert_equal @fleakr_photos.size, @antique.photos.size
+        end
+        should "create valid Photos" do
+          assert @antique.photos.all?(&:valid?)
+        end
+        should "remove the old photos" do
+          assert_not_equal @old_photos, @antique.photos
+        end
+      end
+    end
+  end
+
 end
