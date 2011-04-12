@@ -4,4 +4,8 @@ class Admin::AntiquesController < AdminController
     @antiques = Antique.all
   end
 
+  def show
+    @antique = Antique.find(params[:id])
+  end
+
 end

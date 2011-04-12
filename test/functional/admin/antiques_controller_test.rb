@@ -14,6 +14,11 @@ class Admin::AntiquesControllerTest < ActionController::TestCase
         should assign_to(:antiques)
         should respond_with(:success)
       end
+      context ":show" do
+        setup { get :show, :id => Antique.make }
+        should assign_to(:antique)
+        should respond_with(:success)
+      end
     end
   end
 end
