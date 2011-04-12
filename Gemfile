@@ -20,6 +20,9 @@ group :test do
   gem 'faker'
   gem 'mocha'
   gem 'shoulda'
+  gem 'autotest'
+  gem 'autotest-rails'
+  gem 'test_notifier'
 end
 
 # Use unicorn as the web server
