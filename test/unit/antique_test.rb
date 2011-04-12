@@ -52,7 +52,7 @@ class AntiqueTest < ActiveSupport::TestCase
 
           @fleakr_photos = [ stub('fleakr_photo', Photo.make_unsaved.attributes) ]
 
-          Photo.expects(:fetch).returns( @fleakr_photos )
+          Photo.expects(:fetch).with(@antique.sku_as_tag).returns( @fleakr_photos )
 
           @antique.photos.refresh!
         end

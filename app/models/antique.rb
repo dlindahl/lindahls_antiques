@@ -13,15 +13,22 @@ class Antique < ActiveRecord::Base
 
   has_many :photos do
     def refresh!
-      @photos = Photo.fetch( proxy_owner )
+      @photos = Photo.fetch( proxy_owner.sku_as_tag )
 
       unless @photos.empty?
         proxy_target.clear
 
-        @photos.each do |photo|
-          photo_attributes = Photo.new.attributes.keys.inject({}) { |values, key| values[key.to_sym] = photo.send(key); values }
+        pattrs = Photo.new.attributes
 
-          proxy_owner.photos.build(photo_attributes)
+        @photos.each do |photo|
+          photo_attributes = pattrs.keys.inject({}) { |values, key| values[key.to_sym] = photo.send(key); values }
+
+          if proxy_owner.new_record?
+            proxy_owner.photos.build(photo_attributes)
+          else
+            proxy_owner.photos.create!(photo_attributes) # TODO: Test this
+          end
+          self
         end
       end
     end
