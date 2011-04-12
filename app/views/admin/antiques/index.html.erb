@@ -1,0 +1,20 @@
+<h1>Antiques</h1>
+
+<table>
+  <tbody>
+    <%- @antiques.each do |antique| -%>
+      <tr>
+        <td>
+          <%= antique.sku %>
+        </td>
+        <td>
+          <%= link_to antique.name, edit_admin_antique_path(antique) %>
+        </td>
+        <td>
+          <%= antique.description %>
+        </td>
+      </tr>
+    <%- end -%>
+    <tr>
+  </tbody>
+</table>

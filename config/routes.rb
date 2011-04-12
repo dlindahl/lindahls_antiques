@@ -4,6 +4,7 @@ LindahlsAntiques::Application.routes.draw do
 
   namespace :admin do
     match 'dashboard' => 'dashboard#index'
+    resources :antiques
   end
 
   match 'admin' => 'admin#index'
