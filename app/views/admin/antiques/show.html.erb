@@ -15,5 +15,21 @@
   <dd><%= content_tag :time, @antique.updated_at, :datetime => @antique.updated_at %></dd>
 </dl>
 
+<table>
+  <tbody>
+    <%- if @antique.photos.empty? -%>
+      No photos. <%= link_to "Refresh?", refresh_admin_antique_photos_path(@antique) %>
+    <%- else -%>
+      <%- @antique.photos.each do |photo| -%>
+        <tr>
+          <td>
+            <%= image_tag photo.url, :alt => @antique.sku, :title => @antique.name %>
+          </td>
+        </tr>
+      <%- end -%>
+    <%- end -%>
+  </tbody>
+</table>
+
 <%= link_to "Edit", edit_admin_antique_path(@antique) %>
 <%= link_to "Antiques", admin_antiques_path %>

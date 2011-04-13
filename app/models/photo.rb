@@ -10,6 +10,8 @@ class Photo < ActiveRecord::Base
   # This is actually missing Medium 640, but I'm unsure how to reference it
   validates_inclusion_of :size, :in => %w{square thumbnail small medium large original}, :allow_blank => false
 
+  SIZES = %w{square thumbnail small medium large original}.freeze
+
   def self.fetch( sku_as_tag )
     flickr_user.search(:tags => sku_as_tag)
   end

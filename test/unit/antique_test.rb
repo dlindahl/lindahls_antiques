@@ -48,22 +48,45 @@ class AntiqueTest < ActiveSupport::TestCase
       end
       context "that are refreshed" do
         setup do
-          @old_photos = @antique.photos.clone
+          sized_photo = mock('sized_photo') do
+            stubs(:page).returns(Sham.flickr_page)
+            stubs(:url).returns(Sham.flickr_url)
+            stubs(:width).returns(Sham.dimension)
+            stubs(:height).returns(Sham.dimension)
+          end
 
-          @fleakr_photos = [ stub('fleakr_photo', Photo.make_unsaved.attributes) ]
-
+          @fleakr_photo = stub('fleakr_photo', Photo.make_unsaved.attributes) do
+            Photo::SIZES.each do |s|
+              self.stubs(s).returns(sized_photo)
+            end
+          end
+          @fleakr_photos = [ @fleakr_photo ]
           Photo.expects(:fetch).with(@antique.sku_as_tag).returns( @fleakr_photos )
+        end
+        context "while Fleakr is having issues" do
+          setup do
+            @fleakr_photos.first.expects(:send).times(Photo::SIZES.size).raises(Exception)
+          end
+          should "log an error in the Rails log" do
+            Rails.logger.expects(:error).times(Photo::SIZES.size)
+            @antique.photos.refresh!
+          end
+        end
+        context "with no Fleakr issues" do
+          setup do
+            @old_photos = @antique.photos.clone
 
-          @antique.photos.refresh!
-        end
-        should "add the new photos" do
-          assert_equal @fleakr_photos.size, @antique.photos.size
-        end
-        should "create valid Photos" do
-          assert @antique.photos.all?(&:valid?)
-        end
-        should "remove the old photos" do
-          assert_not_equal @old_photos, @antique.photos
+            @antique.photos.refresh!
+          end
+          should "save the new photos" do
+            assert_equal @fleakr_photos.size * Photo::SIZES.size, @antique.photos.size
+          end
+          should "create valid Photos" do
+            assert @antique.photos.all?(&:valid?)
+          end
+          should "remove the old photos" do
+            @old_photos.each { |op| assert_equal false, @antique.photos.include?(op) }
+          end
         end
       end
     end
