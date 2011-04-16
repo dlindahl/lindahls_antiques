@@ -19,6 +19,28 @@ class Admin::AntiquesControllerTest < ActionController::TestCase
         should assign_to(:antique)
         should respond_with(:success)
       end
+      context ":new" do
+        setup { get :new }
+        should assign_to(:antique)
+        should respond_with(:success)
+      end
+    end
+    context "a POST to" do
+      context ":create" do
+        context "with valid Antique parameters" do
+          setup do
+            @antique = Antique.make_unsaved
+            post :create, :antique => @antique.attributes
+          end
+          should assign_to(:antique)
+          should set_the_flash.to("Antique was created successfully")
+          should respond_with(:redirect)
+        end
+        context "with invalid Antique parameters" do
+          setup { post :create, :antique => {} }
+          should render_template(:new)
+        end
+      end
     end
   end
 end

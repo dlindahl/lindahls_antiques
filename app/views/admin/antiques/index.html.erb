@@ -1,6 +1,11 @@
 <h1>Antiques</h1>
 
 <table>
+  <thead>
+    <tr>
+      <td><%= link_to "New Antique", new_admin_antique_path %></td>
+    </tr>
+  </thead>
   <tbody>
     <%- @antiques.each do |antique| -%>
       <tr>
