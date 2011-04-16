@@ -29,6 +29,11 @@ class AntiqueTest < ActiveSupport::TestCase
   should_not allow_value(nil).for(:height)
   should_not allow_value(nil).for(:depth)
 
+  should_not allow_value(0).for(:weight)
+  should_not allow_value(0).for(:width)
+  should_not allow_value(0).for(:height)
+  should_not allow_value(0).for(:depth)
+
   should have_many(:photos)
 
   context "A saved Antique" do
