@@ -10,6 +10,7 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'devise', '~> 1.2.1'
 gem 'fleakr', '~> 0.7.1'
 gem 'formtastic', '~> 1.2.3'
+gem 'rdiscount', '~> 1.6.8'
 
 group :development do
   gem 'heroku'

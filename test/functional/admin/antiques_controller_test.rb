@@ -15,9 +15,12 @@ class Admin::AntiquesControllerTest < ActionController::TestCase
         should respond_with(:success)
       end
       context ":show" do
-        setup { get :show, :id => Antique.make }
+        setup { get :show, :id => Antique.make.id }
         should assign_to(:antique)
         should respond_with(:success)
+        should "parse the Markdown syntax in description" do
+          assert_select ".description em"
+        end
       end
       context ":new" do
         setup { get :new }

@@ -22,7 +22,7 @@ end
 Antique.blueprint do
   sku { Sham.sku }
   name { Faker::Lorem.words(2).join(' ') }
-  description { Faker::Lorem.paragraphs(2) }
+  description { Faker::Lorem.paragraphs(2).join(' ') + " *bolded foo*" }
   width { Sham.decimal }
   height { Sham.decimal }
   depth { Sham.decimal }
