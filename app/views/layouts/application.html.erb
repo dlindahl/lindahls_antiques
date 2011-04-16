@@ -1,14 +1,32 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<!--[if lt IE 7 ]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
-  <title>LindahlsAntiques</title>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Lindahls Antiques</title>
+  <meta name="description" content="Reseller of antiques and collectables in Northern Virginia">
+  <meta name="author" content="Lindahls Antiques">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%-
+    # Not yet implemented
+    #  <link rel="shortcut icon" href="/favicon.ico">
+    #  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  -%>
+
+  <%= stylesheet_link_tag 'style' %>
+  <%= javascript_include_tag 'libs/modernizr-1.7.min.js' %>
   <%= csrf_meta_tag %>
+  <%= content_for(:head) %>
 </head>
 <body>
+  <%= yield %>
 
-<%= yield %>
-
+  <%= javascript_include_tag 'libs/jquery-1.5.1.min.js' %>
+  <%= content_for(:foot) %>
 </body>
 </html>
