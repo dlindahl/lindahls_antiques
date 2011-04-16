@@ -11,7 +11,7 @@ class Antique < ActiveRecord::Base
     sku.downcase.gsub(/-/,'')
   end
 
-  has_many :photos do
+  has_many :photos, :dependent => :destroy do
     def refresh!
       photos = Photo.fetch( proxy_owner.sku_as_tag )
 
