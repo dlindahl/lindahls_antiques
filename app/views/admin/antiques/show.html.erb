@@ -20,7 +20,7 @@
     <%- if @antique.photos.empty? -%>
       No photos. <%= link_to "Refresh?", refresh_admin_antique_photos_path(@antique) %>
     <%- else -%>
-      <%- @antique.photos.each do |photo| -%>
+      <%- @antique.photos.thumbnail.each do |photo| -%>
         <tr>
           <td>
             <%= image_tag photo.url, :alt => @antique.sku, :title => @antique.name %>

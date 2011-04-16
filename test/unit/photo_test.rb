@@ -26,6 +26,19 @@ class PhotoTest < ActiveSupport::TestCase
 
   should belong_to(:antique)
 
+  context "When there are photos of varying sizes," do
+    setup do
+      Photo::SIZES.each { |size| Photo.make(:size => size) }
+    end
+    Photo::SIZES.each do |size|
+      context "##{size}" do
+        should "find only the photos with a size of #{size}" do
+          assert_equal 1, Photo.send(size).size
+        end
+      end
+    end
+  end
+
   context "Photo.fetch" do
     context "with a valid SKU" do
       setup do

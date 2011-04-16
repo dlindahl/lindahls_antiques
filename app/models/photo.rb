@@ -12,6 +12,10 @@ class Photo < ActiveRecord::Base
 
   SIZES = %w{square thumbnail small medium large original}.freeze
 
+  SIZES.each do |size|
+    scope size, where(:size => size) # TODO: Only public photos?
+  end
+
   def self.fetch( sku_as_tag )
     flickr_user.search(:tags => sku_as_tag)
   end
