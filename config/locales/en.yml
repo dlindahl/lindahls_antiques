@@ -14,3 +14,4 @@ en:
         weight: "in pounds"
   flashes:
     antique_created: "Antique was created successfully"
+    antique_updated: "Antique was updated successfully"

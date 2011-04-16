@@ -19,4 +19,13 @@ class Admin::AntiquesController < AdminController
     respond_with(@antique, :location => admin_antiques_path)
   end
 
+  def edit
+    @antique = Antique.find( params[:id] )
+  end
+
+  def update
+    @antique = Antique.find( params[:id] )
+    flash[:notice] = t('flashes.antique_updated') if @antique.update_attributes( params[:antique] )
+    respond_with(@antique, :location => admin_antiques_path)
+  end
 end

@@ -1,0 +1,7 @@
+<h1>Edit Antique</h1>
+
+<%- if @antique.errors.any? -%>
+  <h2>There were errors updating the Antique</h2>
+<%- end -%>
+
+<%= render :partial => 'form' %>

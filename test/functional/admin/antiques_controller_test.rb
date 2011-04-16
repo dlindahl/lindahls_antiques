@@ -24,6 +24,14 @@ class Admin::AntiquesControllerTest < ActionController::TestCase
         should assign_to(:antique)
         should respond_with(:success)
       end
+      context ":edit" do
+        setup do
+          @antique = Antique.make
+          get :edit, :id => @antique.id
+        end
+        should assign_to(:antique)
+        should render_template(:edit)
+      end
     end
     context "a POST to" do
       context ":create" do
@@ -38,7 +46,25 @@ class Admin::AntiquesControllerTest < ActionController::TestCase
         end
         context "with invalid Antique parameters" do
           setup { post :create, :antique => {} }
+          should_not set_the_flash
           should render_template(:new)
+        end
+      end
+    end
+    context "a PUT to" do
+      context ":update" do
+        setup { @antique = Antique.make }
+        context "with valid Antique parameters" do
+          setup { put :update, :id => @antique.id, :antique => @antique.attributes.merge('name' => "ZOMG!") }
+          should assign_to(:antique)
+          should set_the_flash.to("Antique was updated successfully")
+          should respond_with(:redirect)
+        end
+        context "with invalid Antique parameters" do
+          setup { put :update, :id => @antique.id, :antique => @antique.attributes.merge('width' => 0) }
+          should assign_to(:antique)
+          should_not set_the_flash
+          should respond_with(:success)
         end
       end
     end
