@@ -95,6 +95,12 @@ class AntiqueTest < ActiveSupport::TestCase
         end
       end
     end
+    context "that is saved" do
+      should "automatically retrieve its photos from Flickr" do
+        Photo.expects(:fetch).returns([])
+        subject.save
+      end
+    end
   end
 
 end

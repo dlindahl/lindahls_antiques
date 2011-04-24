@@ -1,15 +1,13 @@
 class Antique < ActiveRecord::Base
 
+  after_create :retrieve_photos
+
   validates_presence_of :name, :description
 
   validates_numericality_of :weight, :width, :height, :depth, { :allow_nil => false, :greater_than => 0 }
 
   validates_uniqueness_of :sku, :allow_blank => false
   validates_format_of :sku, :with => /\w{3}-\d+\w?\Z/, :allow_blank => false
-
-  def sku_as_tag
-    sku.downcase.gsub(/-/,'')
-  end
 
   has_many :photos, :dependent => :destroy do
     def refresh!
@@ -46,6 +44,16 @@ class Antique < ActiveRecord::Base
         end
       end
     end
+  end
+
+  def sku_as_tag
+    sku.downcase.gsub(/-/,'')
+  end
+
+private
+
+  def retrieve_photos
+    photos.refresh!
   end
 
 end
