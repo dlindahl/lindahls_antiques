@@ -47,6 +47,7 @@ class PhotoTest < ActiveSupport::TestCase
         sku_as_tag = "abc123"
 
         Fleakr.expects(:user).returns(fleakr_user)
+        Photo.send(:class_variable_set, "@@flickr_user", nil ) # Ensures the memoization is cleared from any previous tests
         fleakr_user.expects(:search).with(:tags => sku_as_tag).returns( [@fleakr_photo] )
 
         @photos = Photo.fetch( sku_as_tag )
