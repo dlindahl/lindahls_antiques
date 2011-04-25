@@ -4,11 +4,14 @@ LindahlsAntiques::Application.routes.draw do
 
   namespace :admin do
     match 'dashboard' => 'dashboard#index'
+
     resources :antiques do
       resources :photos do
         get :refresh, :on => :collection
       end
+      resources :ebay_auctions
     end
+
   end
 
   match 'admin' => 'admin#index'

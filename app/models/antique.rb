@@ -45,6 +45,9 @@ class Antique < ActiveRecord::Base
       end
     end
   end
+  has_many :ebay_auctions, :dependent => :destroy
+
+  accepts_nested_attributes_for :ebay_auctions, :photos
 
   def sku_as_tag
     sku.downcase.gsub(/-/,'')

@@ -5,6 +5,7 @@ Sham.define do
     suf = ['A','B','C',nil].rand
     "#{pre}-#{sku_frag}#{suf}"
   end
+  string { (0...8).map{65.+(rand(25)).chr}.join }
   title { Faker::Company.catch_phrase }
   dimension { rand(100) + 100 }
   decimal { ((rand(100) * rand(10).to_f) / 100) + 1 }
@@ -37,3 +38,16 @@ Photo.blueprint do
   url { Sham.flickr_url.gsub(/%SIZE%/, size[0].chr) }
   page { Sham.flickr_page.gsub(/%SIZE%/, size[0].chr) }
 end
+
+EbayAuction.blueprint do
+  antique { Antique.make_unsaved }
+  title { Sham.title }
+  description { Faker::Lorem.paragraphs(2).join(' ') }
+  start_price { Sham.decimal }
+  current_price { start_price }
+  shipping_price { Sham.decimal }
+  item_number { Sham.string }
+  length { 7 }
+  start_time { 15.minutes.from_now }
+end
+

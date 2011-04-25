@@ -104,9 +104,12 @@ GEM
     test_notifier (0.3.6)
       notifier
     thor (0.14.6)
+    timeliness (0.3.3)
     treetop (1.4.9)
       polyglot (>= 0.3.1)
     tzinfo (0.3.26)
+    validates_timeliness (3.0.5)
+      timeliness (~> 0.3.2)
     warden (1.0.3)
       rack (>= 1.0.0)
 
@@ -129,3 +132,4 @@ DEPENDENCIES
   shoulda
   sqlite3-ruby
   test_notifier
+  validates_timeliness (~> 3.0.2)

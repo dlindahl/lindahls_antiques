@@ -11,6 +11,7 @@ gem 'devise', '~> 1.2.1'
 gem 'fleakr', '~> 0.7.1'
 gem 'formtastic', '~> 1.2.3'
 gem 'rdiscount', '~> 1.6.8'
+gem 'validates_timeliness', '~> 3.0.2'
 
 group :development do
   gem 'heroku'

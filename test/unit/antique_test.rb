@@ -35,6 +35,7 @@ class AntiqueTest < ActiveSupport::TestCase
   should_not allow_value(0).for(:depth)
 
   should have_many(:photos)
+  should have_many(:ebay_auctions)
 
   context "A saved Antique" do
     subject { Antique.make }

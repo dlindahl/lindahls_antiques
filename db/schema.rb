@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110405001838) do
+ActiveRecord::Schema.define(:version => 20110424190459) do
 
   create_table "antiques", :force => true do |t|
     t.string   "name"
@@ -20,6 +20,32 @@ ActiveRecord::Schema.define(:version => 20110405001838) do
     t.float    "height"
     t.float    "depth"
     t.float    "weight"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "ebay_auctions", :force => true do |t|
+    t.string   "title"
+    t.string   "item_number"
+    t.string   "listing_status"
+    t.string   "time_left"
+    t.text     "description"
+    t.decimal  "start_price",         :precision => 7, :scale => 2, :default => 0.99
+    t.decimal  "current_price",       :precision => 7, :scale => 2, :default => 0.99
+    t.decimal  "reserve_price",       :precision => 7, :scale => 2
+    t.decimal  "buy_it_now_price",    :precision => 7, :scale => 2
+    t.decimal  "shipping_price",      :precision => 7, :scale => 2
+    t.integer  "antique_id"
+    t.integer  "primary_category_id"
+    t.integer  "winner_id"
+    t.integer  "length"
+    t.integer  "bids",                                              :default => 0
+    t.integer  "hit_count",                                         :default => 0
+    t.integer  "watch_count",                                       :default => 0
+    t.boolean  "reserve_met",                                       :default => false
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.datetime "date_ended"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
