@@ -42,7 +42,11 @@ class Admin::EbayAuctionsController < ApplicationController
   # PUT /admin/antique/1/ebay_auctions/1.xml
   def update
     @ebay_auction = EbayAuction.find( params[:id] )
-    flash[:notice] = t('flashes.ebay_auction.updated') if @ebay_auction.update_attributes( params[:ebay_auction] )
+    if params[:ebay_auction].keys == ['listing_status']
+      flash[:notice] = t("flashes.ebay_auction.listed.#{params[:ebay_auction][:listing_status]}") if @ebay_auction.update_attributes( params[:ebay_auction] )
+    else
+      flash[:notice] = t('flashes.ebay_auction.updated') if @ebay_auction.update_attributes( params[:ebay_auction] )
+    end
     respond_with(@ebay_auction, :location => admin_antique_ebay_auctions_path)
   end
 

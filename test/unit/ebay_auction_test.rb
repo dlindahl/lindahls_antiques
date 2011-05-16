@@ -28,11 +28,9 @@ class EbayAuctionTest < ActiveSupport::TestCase
 
   should validate_presence_of(:title)
   should validate_presence_of(:description)
-  should validate_presence_of(:item_number)
 
   should_not allow_value('').for(:title)
   should_not allow_value('').for(:description)
-  should_not allow_value('').for(:item_number)
 
   should validate_numericality_of(:start_price)
   should validate_numericality_of(:current_price)
@@ -90,6 +88,9 @@ class EbayAuctionTest < ActiveSupport::TestCase
   should allow_value(0).for(:hit_count)
   should allow_value(0).for(:watch_count)
 
+  should_not allow_value(nil).for(:listing_status)
+  should_not allow_value('').for(:listing_status)
+
   context "An instance of EbayAuction" do
     context "with a start price set" do
       subject { EbayAuction.new(:start_price => 54.0) }
@@ -101,12 +102,60 @@ class EbayAuctionTest < ActiveSupport::TestCase
       should allow_value(54.0).for(:buy_it_now_price)
       should allow_value(54.0).for(:reserve_price)
     end
+    context "that is submitted" do
+      subject { EbayAuction.make(:antique => Antique.make) }
+      setup do
+        @auction = subject
+        @auction.submit!
+      end
+      should "be pending" do
+        assert_equal "pending", @auction.listing_status
+      end
+    end
+    context "that is listed" do
+      subject { EbayAuction.make(:antique => Antique.make, :listing_status => 'pending') }
+      setup do
+        @auction = subject
+        @auction.list!
+      end
+      before_should "attempt to list the Auction on Ebay" do
+        EbayAuction.any_instance.expects(:list_auction!)
+      end
+      should "be Active" do
+        assert_equal "active", @auction.listing_status
+      end
+    end
+    context "that is completed" do
+      subject { EbayAuction.make(:antique => Antique.make, :listing_status => 'active') }
+      setup do
+        @auction = subject
+        @auction.complete!
+      end
+      should "be Completed" do
+        assert_equal "completed", @auction.listing_status
+      end
+    end
+    context "that is ended" do
+      subject { EbayAuction.make(:antique => Antique.make, :listing_status => 'completed') }
+      setup do
+        @auction = subject
+        @auction.end!
+      end
+      should "be Ended" do
+        assert_equal "ended", @auction.listing_status
+      end
+    end
   end
 
   context "A saved instance of EbayAuction" do
     subject { EbayAuction.make(:antique => Antique.make) }
     should validate_presence_of(:antique_id)
-    should validate_uniqueness_of(:item_number)
+    context "that is Active" do
+      subject { EbayAuction.make(:antique => Antique.make, :listing_status => 'active') }
+      should validate_uniqueness_of(:item_number)
+      should validate_presence_of(:item_number)
+      should_not allow_value('').for(:item_number)
+    end
   end
 
 end

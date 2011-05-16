@@ -32,3 +32,5 @@ en:
       created: "Ebay Auction was created successfully"
       updated: "Ebay Auction was updated successfully"
       destroyed: "Ebay Auction was destroyed successfully"
+      listed:
+        pending: "The Ebay Auction will be listed soon!"

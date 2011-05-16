@@ -21,13 +21,46 @@ class Admin::EbayAuctionsControllerTest < ActionController::TestCase
           should respond_with(:success)
         end
         context ":show" do
-          setup { get :show, :antique_id => @antique.id, :id => EbayAuction.make(:antique => @antique).id }
-          should assign_to(:antique)
-          should assign_to(:ebay_auction)
-          should respond_with(:success)
-          # should "parse the Markdown syntax in description" do
-          #   assert_select ".description em"
-          # end
+          setup do
+            @params = { :antique_id => @antique.id }
+          end
+          context "for an Auction with a state of" do
+            context "draft" do
+              setup { get :show, @params.merge( :id => EbayAuction.make(:antique => @antique).id ) }
+              should assign_to(:antique)
+              should respond_with(:success)
+              # should "parse the Markdown syntax in description" do
+              #   assert_select ".description em"
+              # end
+              should %q{display a "List Now" button} do
+                assert_select "input[value=List Now!]"
+              end
+            end
+            context "pending" do
+              setup { get :show, @params.merge( :id => EbayAuction.make(:antique => @antique, :listing_status => 'pending').id ) }
+              should %q{NOT display a "List Now" button} do
+                assert_select "input", :text => "List Now!", :count => 0
+              end
+            end
+            context "active" do
+              setup { get :show, @params.merge( :id => EbayAuction.make(:antique => @antique, :listing_status => 'active').id ) }
+              should %q{NOT display a "List Now" button} do
+                assert_select "input", :text => "List Now!", :count => 0
+              end
+            end
+            context "completed" do
+              setup { get :show, @params.merge( :id => EbayAuction.make(:antique => @antique, :listing_status => 'completed').id ) }
+              should %q{NOT display a "List Now" button} do
+                assert_select "input", :text => "List Now!", :count => 0
+              end
+            end
+            context "ended" do
+              setup { get :show, @params.merge( :id => EbayAuction.make(:antique => @antique, :listing_status => 'ended').id ) }
+              should %q{NOT display a "List Now" button} do
+                assert_select "input", :text => "List Now!", :count => 0
+              end
+            end
+          end
         end
         context ":new" do
           setup { get :new, :antique_id => @antique.id }
@@ -86,6 +119,12 @@ class Admin::EbayAuctionsControllerTest < ActionController::TestCase
             should assign_to(:ebay_auction)
             should_not set_the_flash
             should respond_with(:success)
+          end
+          context "with a listing status change" do
+            context "to Pending" do
+              setup { put :update, :antique_id => @antique.id, :id => @ebay_auction.id, :ebay_auction => { :listing_status => 'pending' } }
+              should set_the_flash.to("The Ebay Auction will be listed soon!")
+            end
           end
         end
       end

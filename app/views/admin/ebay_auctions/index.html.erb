@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+    <th>Antique</th>
     <th>Title</th>
     <th>Start price</th>
     <th>Current price</th>
@@ -29,6 +30,7 @@
 
 <% @ebay_auctions.each do |ebay_auction| %>
   <tr>
+    <td><%= link_to ebay_auction.antique.name, admin_antique_path(ebay_auction.antique) %></td>
     <td><%= ebay_auction.title %></td>
     <td><%= ebay_auction.start_price %></td>
     <td><%= ebay_auction.current_price %></td>

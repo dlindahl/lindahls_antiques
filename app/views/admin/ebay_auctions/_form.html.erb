@@ -1,4 +1,4 @@
-<%= semantic_form_for [:admin, @ebay_auction], :url => admin_antique_ebay_auctions_path(@antique) do |f| %>
+<%= semantic_form_for [:admin, @antique, @ebay_auction] do |f| %>
   <%= f.inputs :title %>
   <%= f.inputs :description %>
   <%= f.inputs :item_number, :listing_status, :time_left %>
