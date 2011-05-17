@@ -1,0 +1,38 @@
+@import "mixins/_960"
+@import "mixins/_gradients"
+@import "mixins/_flexible_box_model"
+
+body
+  padding-top 0
+
+header
+  :before
+    content "\00a0"
+    display block
+    position absolute
+    top 0
+    left 0
+    right 0
+    height 28px
+    background #333
+    z-index -1
+  .user
+    padding-bottom 4px
+    color #eee
+    font-family Calibri, "Helvetica Neue", Arial, sans-serif
+    font-size .75em
+    line-height 2
+    text-align right
+  .banner
+    > nav
+      linear_gradient(#eee, #ddd)
+      > ul
+        display_box()
+        > li
+          padding 2px 5px
+
+footer
+  nav
+    grid(2)
+    pull(5)
+    text-align center

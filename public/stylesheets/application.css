@@ -1,0 +1,7 @@
+body{padding-top:0}
+header :before{content:"\00a0";display:block;position:absolute;top:0;left:0;right:0;height:28px;background:#333;z-index:-1}
+header .user{padding-bottom:4px;color:#eee;font-family:Calibri,"Helvetica Neue",Arial,sans-serif;font-size:.75em;line-height:2;text-align:right}
+header .banner > nav{background-color:#444;background-image:-webkit-gradient(linear,left top,left bottom,from(#eee),to(#ddd));background-image:-webkit-linear-gradient(top,#eee,#ddd);background-image:-moz-linear-gradient(top,#eee,#ddd);background-image:-ms-linear-gradient(top,#eee,#ddd);background-image:-o-linear-gradient(top,#eee,#ddd);background-image:linear-gradient(top,#eee,#ddd);}
+header .banner > nav > ul{display:-moz-box;display:-webkit-box;display:box;-moz-box-pack:"start";-webkit-box-pack:"start";box-pack:"start";-moz-box-align:"start";-webkit-box-align:alignent;box-align:"start";}
+header .banner > nav > ul > li{padding:2px 5px}
+footer nav{float:left;width:140px;margin:0 0 0 20px;padding-left:400px;text-align:center}

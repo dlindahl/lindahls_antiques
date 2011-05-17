@@ -13,6 +13,7 @@ gem 'formtastic', '~> 1.2.3'
 gem 'rdiscount', '~> 1.6.8'
 gem 'validates_timeliness', '~> 3.0.2'
 gem 'state_machine', '~> 0.9.4'
+gem 'stylus_rails', '~> 0.1.3'
 
 group :development do
   gem 'heroku'

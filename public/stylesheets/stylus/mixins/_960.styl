@@ -1,0 +1,22 @@
+/*
+* [n] Width of content in grid units
+* [p] Indentation of content in grid units
+*/
+grid(n, options = null)
+  float left
+  w = (80px * n) - 20
+
+  if options[1]
+    w = w + options[0] + options[1]
+  else if options[0]
+    w = w + (options[0] * 2)
+
+  width w
+
+  if n > 12
+    margin 0
+  else
+    margin 0 0 0 20px
+
+pull(p)
+  padding-left 80px * p
