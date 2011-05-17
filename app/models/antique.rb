@@ -53,6 +53,10 @@ class Antique < ActiveRecord::Base
     sku.downcase.gsub(/-/,'')
   end
 
+  def dimensions
+    "#{width}w x #{height}h x #{depth}d"
+  end
+
 private
 
   def retrieve_photos

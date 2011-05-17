@@ -47,6 +47,12 @@ class AntiqueTest < ActiveSupport::TestCase
     should "create a Flickr tag from its SKU" do
       assert_equal "a123b", Antique.new(:sku => 'A-123B').sku_as_tag
     end
+    should "report its dimensions in a human readable way" do
+      Antique.any_instance.stubs(:width).returns(1)
+      Antique.any_instance.stubs(:height).returns(1)
+      Antique.any_instance.stubs(:depth).returns(1)
+      assert_equal "1w x 1h x 1d", subject.dimensions
+    end
     context "with photos" do
       setup do
         @antique = subject

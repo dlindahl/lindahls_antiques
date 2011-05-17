@@ -4,11 +4,9 @@
   <%= md(@antique.description) %>
 </p>
 
+<p><%= @antique.dimensions %></p>
+
 <dl>
-  <%- [:width, :height, :depth].each do |dim| -%>
-    <%= content_tag :dt, dim %>
-    <%= content_tag :dd, @antique.send(dim) %>
-  <%- end -%>
   <dt>Created At</dt>
   <dd><%= content_tag :time, @antique.created_at, :datetime => @antique.created_at %></dd>
   <dt>Updated At</dt>
