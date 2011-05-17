@@ -18,13 +18,12 @@
     #  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   -%>
 
-  <%= stylesheet_link_tag 'style' %>
-  <%= stylesheet_link_tag 'formtastic' if params[:action] =~ /edit|new/ %>
-  <%= stylesheet_link_tag 'formtastic_changes' if params[:action] =~ /edit|new/ %>
+  <%= stylesheet_link_tag %w{style} %>
+
+  <%= content_for(:head) %>
 
   <%= javascript_include_tag 'libs/modernizr-1.7.min.js' %>
   <%= csrf_meta_tag %>
-  <%= content_for(:head) %>
 </head>
 <body>
   <%= yield %>

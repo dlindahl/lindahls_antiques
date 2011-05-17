@@ -1,0 +1,27 @@
+<%- content_for :head do -%>
+  <%= stylesheet_link_tag %w{formtastic formtastic_changes} if params[:action] =~ /edit|new/ %>
+  <%= stylesheet_link_tag %w{admin/photos} %>
+<%- end -%>
+
+<header>
+  <hgroup class="user">
+    <%= current_user.try(:email) %>
+  </hgroup>
+  <hgroup class="banner">
+    <a href="/" id="logo">Logo</a>
+    <nav>
+      <ul>
+        <li><%= link_to 'Dashboard', admin_dashboard_path %></li>
+        <li><%= link_to 'Antiques', admin_antiques_path %></li>
+      </ul>
+    </nav>
+  </hgroup>
+</header>
+
+<%= yield %>
+
+<footer class="grids">
+  <%= content_for :footer %>
+</footer>
+
+<%= render :file => 'layouts/application' %>
