@@ -4,17 +4,17 @@ class Antique < ActiveRecord::Base
 
   validates_presence_of :name, :description
 
-  validates_numericality_of :weight, :width, :height, :depth, { :allow_nil => false, :greater_than => 0 }
+  validates_numericality_of :weight, :width, :height, :depth, { :allow_nil => false, :greater_than_or_equal_to => 0.001 } # This is now an "or_equal_to" to fix an issue in Formtastic
 
   validates_uniqueness_of :sku, :allow_blank => false
   validates_format_of :sku, :with => /\w{3}-\d+\w?\Z/, :allow_blank => false
 
   has_many :photos, :dependent => :destroy do
     def refresh!
-      photos = Photo.fetch( proxy_owner.sku_as_tag )
+      photos = Photo.fetch( proxy_association.owner.sku_as_tag )
 
       unless photos.empty?
-        proxy_target.clear
+        proxy_association.target.clear
 
         photos.each do |photo|
           Photo::SIZES.each do |size|
@@ -32,10 +32,10 @@ class Antique < ActiveRecord::Base
                   :width => sized_photo.width,
                   :height => sized_photo.height
                 }
-                if proxy_owner.new_record?
-                  proxy_owner.photos.build(new_photo_attributes)
+                if proxy_association.owner.new_record?
+                  proxy_association.owner.photos.build(new_photo_attributes)
                 else
-                  proxy_owner.photos.create!(new_photo_attributes) # TODO: Test this
+                  proxy_association.owner.photos.create!(new_photo_attributes) # TODO: Test this
                 end
               end
             end
