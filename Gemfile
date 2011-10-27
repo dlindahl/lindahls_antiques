@@ -15,6 +15,9 @@ gem 'validates_timeliness', '~> 3.0.2'
 gem 'state_machine', '~> 1.0.2'
 gem 'stylus_rails', '~> 0.1.3'
 
+gem 'activeadmin'
+gem 'sass-rails'
+
 group :development do
   gem 'heroku', '~> 2.11.0'
 end
