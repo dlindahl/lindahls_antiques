@@ -1,5 +1,6 @@
-Lindahl's Antiques
-==================
+# Lindahl's Antiques
+
+[![Build Status](https://secure.travis-ci.org/dlindahl/lindahls_antiques.png)](http://travis-ci.org/dlindahl/lindahls_antiques)
 
 Antique management for my father.
 
