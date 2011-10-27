@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-LindahlsAntiques::Application.config.secret_token = '7e596cbfe1e7a146b6e04a13833be76c473f3283d72c051a44452c4224cf89fd15efbffd4080dbf062466d1360794359836308e729c2cf07541dd41aa8547ce2'
+LindahlsAntiques::Application.config.secret_token = 'a2e4fc09cb9760bad4acbaadb656401cd684cad2f34b148d938e994c94e3580b9b1c1c5f2b44f0e2f8948866a6e9ab8e7ca3c1180dab165cb51575f028121cd0'
