@@ -56,41 +56,25 @@ ActiveRecord::Schema.define(:version => 20111028002153) do
     t.datetime "updated_at"
   end
 
-  create_table "ebay_auction_categories", :force => true do |t|
-    t.string   "name"
-    t.integer  "category_id"
-    t.integer  "parent_id"
-    t.integer  "level"
-    t.integer  "version"
-    t.boolean  "leaf_category"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "ebay_auction_categories_ebay_auctions", :id => false, :force => true do |t|
-    t.integer "ebay_auction_id"
-    t.integer "ebay_auction_category_id"
-  end
-
   create_table "ebay_auctions", :force => true do |t|
     t.string   "title"
     t.string   "item_number"
     t.string   "listing_status"
     t.string   "time_left"
     t.text     "description"
-    t.decimal  "start_price",         :default => 0.99
-    t.decimal  "current_price",       :default => 0.99
-    t.decimal  "reserve_price"
-    t.decimal  "buy_it_now_price"
-    t.decimal  "shipping_price"
+    t.decimal  "start_price",         :precision => 7, :scale => 2, :default => 0.99
+    t.decimal  "current_price",       :precision => 7, :scale => 2, :default => 0.99
+    t.decimal  "reserve_price",       :precision => 7, :scale => 2
+    t.decimal  "buy_it_now_price",    :precision => 7, :scale => 2
+    t.decimal  "shipping_price",      :precision => 7, :scale => 2
     t.integer  "antique_id"
     t.integer  "primary_category_id"
     t.integer  "winner_id"
     t.integer  "length"
-    t.integer  "bids",                :default => 0
-    t.integer  "hit_count",           :default => 0
-    t.integer  "watch_count",         :default => 0
-    t.boolean  "reserve_met",         :default => false
+    t.integer  "bids",                                              :default => 0
+    t.integer  "hit_count",                                         :default => 0
+    t.integer  "watch_count",                                       :default => 0
+    t.boolean  "reserve_met",                                       :default => false
     t.datetime "start_time"
     t.datetime "end_time"
     t.datetime "date_ended"
