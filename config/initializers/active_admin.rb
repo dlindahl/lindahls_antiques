@@ -5,7 +5,7 @@ ActiveAdmin.setup do |config|
   # Set the title that is displayed on the main layout
   # for each of the active admin pages.
   #
-  config.site_title = "Lindahls Antiques"
+  config.site_title = "Lindahl's Antiques"
 
 
   # == Default Namespace

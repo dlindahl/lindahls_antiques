@@ -13,9 +13,8 @@ gem 'formtastic', '~> 2.0.1'
 gem 'rdiscount', '~> 1.6.8'
 gem 'validates_timeliness', '~> 3.0.2'
 gem 'state_machine', '~> 1.0.2'
-gem 'stylus_rails', '~> 0.1.3'
 
-gem 'activeadmin'
+gem 'activeadmin', '~> 0.3.2', :git => "git://github.com/gregbell/active_admin.git"
 gem 'sass-rails'
 
 group :development do

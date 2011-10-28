@@ -1,9 +1,0 @@
-<%= semantic_form_for [:admin, @antique, @ebay_auction], :html => { :class => 'grids' } do |f| %>
-  <%= f.inputs :title %>
-  <%= f.inputs :description %>
-  <%= f.inputs :item_number, :listing_status, :time_left %>
-  <%= f.inputs :start_price, :current_price, :reserve_price, :buy_it_now_price, :shipping_price %>
-  <%= f.inputs :bids, :reserve_met %>
-  <%= f.inputs :start_time, :length %>
-  <%= f.buttons %>
-<% end %>

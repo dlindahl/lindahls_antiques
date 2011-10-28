@@ -17,10 +17,6 @@ Sham.define do
   flickr_page { "http://www.flickr.com/photos/#{rand}@N00/#{rand}/sizes/%SIZE%/" }
 end
 
-User.blueprint do
-  email { Sham.email }
-end
-
 Antique.blueprint do
   sku { Sham.sku }
   name { Faker::Lorem.words(2).join(' ') }
