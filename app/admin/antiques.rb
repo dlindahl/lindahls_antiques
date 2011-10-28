@@ -2,7 +2,8 @@ ActiveAdmin.register Antique do
 
   index :as => :grid do |antique|
     # TODO: Move this to a partial
-    link_to( image_tag( antique.photos.first.url ), admin_antique_path(antique) ) + antique.sku + "<br/>".html_safe + antique.name
+    # link_to( image_tag( antique.photos.first.url ), admin_antique_path(antique) ) + antique.sku + "<br/>".html_safe + antique.name
+    render 'admin/antiques/grid_item', :antique => antique
   end
 
   show do
