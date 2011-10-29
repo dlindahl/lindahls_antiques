@@ -1,4 +1,8 @@
+require 'behaviors/ebay_auction'
+
 class EbayAuction < ActiveRecord::Base
+  include Behaviors::EbayAuction
+
   belongs_to :antique
 
   validates_presence_of :antique_id, :allow_blank => false
@@ -44,10 +48,6 @@ class EbayAuction < ActiveRecord::Base
     event :end do
       transition :completed => :ended
     end
-
-  end
-
-  def list_auction!
 
   end
 

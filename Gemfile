@@ -15,7 +15,7 @@ gem 'validates_timeliness', '~> 3.0.2'
 gem 'state_machine', '~> 1.0.2'
 
 gem 'activeadmin', '~> 0.3.2', :git => "git://github.com/gregbell/active_admin.git"
-gem 'sass-rails'
+gem 'stache', '~> 0.1.0', :git => "git://github.com/dlindahl/stache.git"
 
 group :development do
   gem 'heroku', '~> 2.11.0'
@@ -31,4 +31,11 @@ group :test do
   gem 'autotest'
   gem 'autotest-rails'
   gem 'test_notifier'
+end
+
+group :assets do
+  gem 'sass-rails', "  ~> 3.1.4"
+  gem 'coffee-rails', "~> 3.1.0"
+  gem 'uglifier'
+  gem 'compass', '~> 0.12.alpha'
 end

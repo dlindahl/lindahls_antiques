@@ -1,4 +1,9 @@
+require 'behaviors/antique'
+require 'interrogatives/antique'
+
 class Antique < ActiveRecord::Base
+  include Behaviors::Antique
+  include Interrogatives::Antique
 
   after_create :retrieve_photos
 
@@ -48,14 +53,6 @@ class Antique < ActiveRecord::Base
   has_many :ebay_auctions, :dependent => :destroy
 
   accepts_nested_attributes_for :ebay_auctions, :photos
-
-  def sku_as_tag
-    sku.downcase.gsub(/-/,'')
-  end
-
-  def dimensions
-    "#{width}w x #{height}h x #{depth}d"
-  end
 
 private
 
