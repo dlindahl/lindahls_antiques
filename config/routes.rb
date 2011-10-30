@@ -4,21 +4,14 @@ LindahlsAntiques::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
-  # devise_for :users
-  # 
-  # namespace :admin do
-  #   match 'dashboard' => 'dashboard#index'
-  # 
-  #   resources :antiques do
+  namespace :admin do
+    resources :antiques do
   #     resources :photos do
   #       get :refresh, :on => :collection
   #     end
-  #     resources :ebay_auctions
-  #   end
-  # 
-  # end
-  # 
-  # match 'admin' => 'admin#index'
+      resources :ebay_auctions
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

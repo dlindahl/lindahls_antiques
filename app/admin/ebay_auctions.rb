@@ -1,4 +1,6 @@
 ActiveAdmin.register EbayAuction do
+  menu false
+
   # Keep this? I think I want Antique to drive everything
   index do |ebay_auction|
     column "SKU" do |ebay_auction|
@@ -19,5 +21,7 @@ ActiveAdmin.register EbayAuction do
     column :end_time
     column :date_ended
   end
+
+  form :partial => "form"
 
 end
