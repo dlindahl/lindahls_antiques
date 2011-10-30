@@ -3,3 +3,5 @@ db/*.sqlite3
 log/*.log
 tmp/**/*
 lib/tasks/fleakr_env_vars.rake
+coverage
+coverage.data
