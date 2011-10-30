@@ -38,7 +38,11 @@ class AntiqueTest < ActiveSupport::TestCase
   should have_many(:ebay_auctions)
 
   context "A saved Antique" do
-    subject { Antique.make }
+    subject do
+      VCR.use_cassette('flickr_fetch') do
+        Antique.make
+      end
+    end
     should validate_uniqueness_of(:sku)
   end
 

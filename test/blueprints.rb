@@ -1,10 +1,11 @@
 Sham.define do
   sku do
-    pre = Array.new(3) { (rand(122-97) + 97).chr }.join
-    sku_frag = rand(1000)
-    suf = ['A','B','C',nil]
-    suf = suf[rand(suf.size)]
-    "#{pre}-#{sku_frag}#{suf}"
+    # pre = Array.new(3) { (rand(122-97) + 97).chr }.join
+    # sku_frag = rand(1000)
+    # suf = ['A','B','C',nil]
+    # suf = suf[rand(suf.size)]
+    # "#{pre}-#{sku_frag}#{suf}"
+    "TEST-101"
   end
   string { (0...8).map{65.+(rand(25)).chr}.join }
   title { Faker::Company.catch_phrase }

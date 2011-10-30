@@ -1,0 +1,72 @@
+--- 
+- !ruby/struct:VCR::HTTPInteraction 
+  request: !ruby/struct:VCR::Request 
+    method: :get
+    uri: http://api.flickr.com:80/services/rest/?api_sig=6ca36693765810e3342ce05c29b78bf8&auth_token=72157626431091668-9a139d48d7307739&api_key=487eb5a7801c2f33c5d50a7c38f14b35&method=flickr.people.findByUsername&username=lindahlsantiques
+    body: 
+    headers: 
+  response: !ruby/struct:VCR::Response 
+    status: !ruby/struct:VCR::ResponseStatus 
+      code: 200
+      message: OK
+    headers: 
+      p3p: 
+      - policyref="http://p3p.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE GOV"
+      content-type: 
+      - text/xml; charset=utf-8
+      x-served-by: 
+      - www212.flickr.mud.yahoo.com
+      date: 
+      - Sun, 30 Oct 2011 23:26:59 GMT
+      content-length: 
+      - "155"
+      vary: 
+      - Accept-Encoding
+      cache-control: 
+      - private
+    body: |
+      <?xml version="1.0" encoding="utf-8" ?>
+      <rsp stat="ok">
+      <user id="26474870@N03" nsid="26474870@N03">
+      	<username>lindahlsantiques</username>
+      </user>
+      </rsp>
+
+    http_version: "1.1"
+- !ruby/struct:VCR::HTTPInteraction 
+  request: !ruby/struct:VCR::Request 
+    method: :get
+    uri: http://api.flickr.com:80/services/rest/?api_sig=e3b3a95492b5eedc476cdc50da36973e&auth_token=72157626431091668-9a139d48d7307739&api_key=487eb5a7801c2f33c5d50a7c38f14b35&user_id=26474870%40N03&method=flickr.photos.search&tags=test101
+    body: 
+    headers: 
+  response: !ruby/struct:VCR::Response 
+    status: !ruby/struct:VCR::ResponseStatus 
+      code: 200
+      message: OK
+    headers: 
+      p3p: 
+      - policyref="http://p3p.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE GOV"
+      content-type: 
+      - text/xml; charset=utf-8
+      x-served-by: 
+      - www219.flickr.mud.yahoo.com
+      date: 
+      - Sun, 30 Oct 2011 23:26:59 GMT
+      content-length: 
+      - "710"
+      vary: 
+      - Accept-Encoding
+      cache-control: 
+      - private
+    body: |
+      <?xml version="1.0" encoding="utf-8" ?>
+      <rsp stat="ok">
+      <photos page="1" pages="1" perpage="100" total="4">
+      	<photo id="2599123249" owner="26474870@N03" secret="1573c5b7c2" server="3054" farm="4" title="gogogo" ispublic="0" isfriend="0" isfamily="0" />
+      	<photo id="2599878584" owner="26474870@N03" secret="0242c432ce" server="3099" farm="4" title="gogogo" ispublic="0" isfriend="0" isfamily="0" />
+      	<photo id="2599878610" owner="26474870@N03" secret="e25031d26a" server="3278" farm="4" title="gogogo" ispublic="0" isfriend="0" isfamily="0" />
+      	<photo id="2591041131" owner="26474870@N03" secret="3dca342d4a" server="3228" farm="4" title="flickr test" ispublic="0" isfriend="0" isfamily="0" />
+      </photos>
+      </rsp>
+
+    http_version: "1.1"

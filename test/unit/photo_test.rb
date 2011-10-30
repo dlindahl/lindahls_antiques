@@ -39,23 +39,4 @@ class PhotoTest < ActiveSupport::TestCase
     end
   end
 
-  context "Photo.fetch" do
-    context "with a valid SKU" do
-      setup do
-        fleakr_user = mock('fleakr_user')
-        @fleakr_photo = mock('fleakr_photo')
-        sku_as_tag = "abc123"
-
-        Fleakr.expects(:user).returns(fleakr_user)
-        Photo.send(:class_variable_set, "@@flickr_user", nil ) # Ensures the memoization is cleared from any previous tests
-        fleakr_user.expects(:search).with(:tags => sku_as_tag).returns( [@fleakr_photo] )
-
-        @photos = Photo.fetch( sku_as_tag )
-      end
-      should "add the Flickr photos to the Database" do
-        assert_equal [@fleakr_photo], @photos
-      end
-    end
-  end
-
 end

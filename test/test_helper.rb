@@ -18,3 +18,9 @@ require File.dirname(__FILE__) + '/blueprints'
 class ActiveSupport::TestCase
   setup { Sham.reset }
 end
+
+
+VCR.config do |c|
+  c.cassette_library_dir = 'test/fixtures/vcr_cassettes'
+  c.stub_with :fakeweb
+end

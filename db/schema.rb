@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111028002153) do
+ActiveRecord::Schema.define(:version => 20111030211705) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(:version => 20111028002153) do
     t.string   "size"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "flickr_id"
   end
 
 end

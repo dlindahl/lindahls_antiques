@@ -30,12 +30,13 @@ class Antique < ActiveRecord::Base
             else
               if sized_photo
                 new_photo_attributes = {
-                  :title => photo.title,
-                  :size => size,
-                  :page => sized_photo.page,
-                  :url => sized_photo.url,
-                  :width => sized_photo.width,
-                  :height => sized_photo.height
+                  :title      => photo.title,
+                  :size       => size,
+                  :page       => sized_photo.page,
+                  :url        => sized_photo.url,
+                  :width      => sized_photo.width,
+                  :height     => sized_photo.height,
+                  :flickr_id  => photo.id
                 }
                 if proxy_association.owner.new_record?
                   proxy_association.owner.photos.build(new_photo_attributes)

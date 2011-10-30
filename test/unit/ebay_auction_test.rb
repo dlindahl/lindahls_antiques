@@ -103,7 +103,11 @@ class EbayAuctionTest < ActiveSupport::TestCase
       should allow_value(54.0).for(:reserve_price)
     end
     context "that is submitted" do
-      subject { EbayAuction.make(:antique => Antique.make) }
+      subject do
+        VCR.use_cassette('flickr_fetch') do
+          EbayAuction.make(:antique => Antique.make)
+        end
+      end
       setup do
         @auction = subject
         @auction.submit!
@@ -113,7 +117,11 @@ class EbayAuctionTest < ActiveSupport::TestCase
       end
     end
     context "that is listed" do
-      subject { EbayAuction.make(:antique => Antique.make, :listing_status => 'pending') }
+      subject do
+        VCR.use_cassette('flickr_fetch') do
+          EbayAuction.make(:antique => Antique.make, :listing_status => 'pending')
+        end
+      end
       setup do
         @auction = subject
         @auction.list!
@@ -126,7 +134,11 @@ class EbayAuctionTest < ActiveSupport::TestCase
       end
     end
     context "that is completed" do
-      subject { EbayAuction.make(:antique => Antique.make, :listing_status => 'active') }
+      subject do
+        VCR.use_cassette('flickr_fetch') do
+          EbayAuction.make(:antique => Antique.make, :listing_status => 'active')
+        end
+      end
       setup do
         @auction = subject
         @auction.complete!
@@ -136,7 +148,11 @@ class EbayAuctionTest < ActiveSupport::TestCase
       end
     end
     context "that is ended" do
-      subject { EbayAuction.make(:antique => Antique.make, :listing_status => 'completed') }
+      subject do
+        VCR.use_cassette('flickr_fetch') do
+          EbayAuction.make(:antique => Antique.make, :listing_status => 'completed')
+        end
+      end
       setup do
         @auction = subject
         @auction.end!
@@ -148,10 +164,18 @@ class EbayAuctionTest < ActiveSupport::TestCase
   end
 
   context "A saved instance of EbayAuction" do
-    subject { EbayAuction.make(:antique => Antique.make) }
+    subject do
+      VCR.use_cassette('flickr_fetch') do
+        EbayAuction.make(:antique => Antique.make)
+      end
+    end
     should validate_presence_of(:antique_id)
     context "that is Active" do
-      subject { EbayAuction.make(:antique => Antique.make, :listing_status => 'active') }
+      subject do
+        VCR.use_cassette('flickr_fetch') do
+          EbayAuction.make(:antique => Antique.make, :listing_status => 'active')
+        end
+      end
       should validate_uniqueness_of(:item_number)
       should validate_presence_of(:item_number)
       should_not allow_value('').for(:item_number)
