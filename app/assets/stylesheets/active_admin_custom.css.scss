@@ -2,38 +2,5 @@
         "compass/css3/border-radius",
         "compass/css3/box";
 
-$thumbnail-width: 75px;
-$thumbnail-height: 75px;
-
-.antique {
-  article {
-    margin: 5px;
-    padding: 10px;
-  }
-  p {
-    margin: 0;
-  }
-  figure {
-    float: left;
-    width: $thumbnail-width;
-    height: $thumbnail-height;
-    margin: 0 5px 0;
-    &:empty {
-      &:before {
-        content: '?';
-        @include display-box;
-        @include box-pack('center');
-        @include box-align('center');
-        height: 100%;
-        @include border-radius( 10px );
-        font-size: 4em;
-        background: #ddd;
-        color: #bbb;
-        text-align: center;
-      }
-    }
-  }
-  img {
-    @include border-radius( 10px );
-  }
-}
+@import "antiques",
+        "photos";

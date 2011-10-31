@@ -6,9 +6,9 @@ LindahlsAntiques::Application.routes.draw do
 
   namespace :admin do
     resources :antiques do
-  #     resources :photos do
-  #       get :refresh, :on => :collection
-  #     end
+      resources :photos do
+        get :refresh, :on => :collection
+      end
       resources :ebay_auctions
     end
   end

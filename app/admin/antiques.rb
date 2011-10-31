@@ -18,4 +18,15 @@ ActiveAdmin.register Antique do
     active_admin_comments
   end
 
+  sidebar :photos, :only => [:show, :edit] do
+    photos = antique.photos.square
+    if photos.empty?
+      render 'admin/photos/none'
+    else
+      # TODO: Figure out how to get render to use a layout.
+      div pluralize(photos.size, 'photo')
+      ul { render photos }
+    end
+  end
+
 end
