@@ -28,7 +28,6 @@ class BehaviorsPhotoTest < ActiveSupport::TestCase
     setup { MockPhoto.new.small }
 
     before_should "return the requested sized image" do
-      # TODO: Add VCR here?
       arel = mock('arel')
       arel.expects(:where).with(:flickr_id => 123).returns([])
 
