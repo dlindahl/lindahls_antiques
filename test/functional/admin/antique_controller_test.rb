@@ -10,20 +10,39 @@ class Admin::AntiquesControllerTest < ActionController::TestCase
     end
     context "a GET to" do
       context ":index" do
-        setup { get :index }
+        setup do
+          VCR.use_cassette('flickr_fetch') do
+            Antique.make
+          end
+          get :index
+        end
         should assign_to(:antiques)
         should respond_with(:success)
       end
       context ":show" do
-        setup do
-          VCR.use_cassette('flickr_fetch') do
-            get :show, :id => Antique.make.id
+        context "with Photos" do
+          setup do
+            VCR.use_cassette('flickr_fetch') do
+              get :show, :id => Antique.make.id
+            end
+          end
+          should assign_to(:antique)
+          should respond_with(:success)
+          should "parse the Markdown syntax in description" do
+            assert_select ".description em"
+          end
+          should "include an button to Auction Off the item" do
+            assert_select '.action_item', :text => 'Auction Off!'
           end
         end
-        should assign_to(:antique)
-        should respond_with(:success)
-        should "parse the Markdown syntax in description" do
-          assert_select ".description em"
+        context "without Photos" do
+          setup do
+            Photo.stubs(:fetch).returns([])
+            get :show, :id => Antique.make.id
+          end
+          should "offer the oppotunity to refresh the photos" do
+            assert_select '#photos_sidebar_section a', :text => 'Refresh?'
+          end
         end
       end
       context ":new" do
