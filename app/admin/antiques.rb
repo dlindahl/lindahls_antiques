@@ -12,7 +12,7 @@ ActiveAdmin.register Antique do
     attributes_table :sku, :name, :dimensions, :weight, :created_at, :updated_at
 
     panel "Description" do
-      div { md( antique.description ) }
+      div(:class => 'description') { md( antique.description ) }
     end
 
     active_admin_comments
