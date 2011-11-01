@@ -23,26 +23,21 @@ class Antique < ActiveRecord::Base
 
         photos.each do |photo|
           Photo::SIZES.each do |size|
-            begin
-              sized_photo = photo.send(size)
-            rescue Exception => e
-              Rails.logger.error("FLEAKR ERROR: Retrieving the #{size} version of #{photo.title} failed! (#{e.message})")
-            else
-              if sized_photo
-                new_photo_attributes = {
-                  :title      => photo.title,
-                  :size       => size,
-                  :page       => sized_photo.page,
-                  :url        => sized_photo.url,
-                  :width      => sized_photo.width,
-                  :height     => sized_photo.height,
-                  :flickr_id  => photo.id
-                }
-                if proxy_association.owner.new_record?
-                  proxy_association.owner.photos.build(new_photo_attributes)
-                else
-                  proxy_association.owner.photos.create!(new_photo_attributes) # TODO: Test this
-                end
+            sized_photo = photo.send(size)
+            if sized_photo
+              new_photo_attributes = {
+                :title      => photo.title,
+                :size       => size,
+                :page       => sized_photo.page,
+                :url        => sized_photo.url,
+                :width      => sized_photo.width,
+                :height     => sized_photo.height,
+                :flickr_id  => photo.id
+              }
+              if proxy_association.owner.new_record?
+                proxy_association.owner.photos.build(new_photo_attributes)
+              else
+                proxy_association.owner.photos.create!(new_photo_attributes)
               end
             end
           end

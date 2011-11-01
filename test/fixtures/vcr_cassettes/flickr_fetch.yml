@@ -2,7 +2,7 @@
 - !ruby/struct:VCR::HTTPInteraction 
   request: !ruby/struct:VCR::Request 
     method: :get
-    uri: http://api.flickr.com:80/services/rest/?api_sig=6ca36693765810e3342ce05c29b78bf8&auth_token=72157626431091668-9a139d48d7307739&api_key=487eb5a7801c2f33c5d50a7c38f14b35&method=flickr.people.findByUsername&username=lindahlsantiques
+    uri: http://api.flickr.com:80/services/rest/?auth_token=72157626431091668-9a139d48d7307739&api_sig=6ca36693765810e3342ce05c29b78bf8&username=lindahlsantiques&method=flickr.people.findByUsername&api_key=487eb5a7801c2f33c5d50a7c38f14b35
     body: 
     headers: 
   response: !ruby/struct:VCR::Response 
@@ -15,9 +15,9 @@
       content-type: 
       - text/xml; charset=utf-8
       x-served-by: 
-      - www212.flickr.mud.yahoo.com
+      - www152.flickr.mud.yahoo.com
       date: 
-      - Sun, 30 Oct 2011 23:26:59 GMT
+      - Mon, 31 Oct 2011 21:53:25 GMT
       content-length: 
       - "155"
       vary: 
@@ -36,7 +36,7 @@
 - !ruby/struct:VCR::HTTPInteraction 
   request: !ruby/struct:VCR::Request 
     method: :get
-    uri: http://api.flickr.com:80/services/rest/?api_sig=e3b3a95492b5eedc476cdc50da36973e&auth_token=72157626431091668-9a139d48d7307739&api_key=487eb5a7801c2f33c5d50a7c38f14b35&user_id=26474870%40N03&method=flickr.photos.search&tags=test101
+    uri: http://api.flickr.com:80/services/rest/?auth_token=72157626431091668-9a139d48d7307739&api_sig=e3b3a95492b5eedc476cdc50da36973e&tags=test101&method=flickr.photos.search&api_key=487eb5a7801c2f33c5d50a7c38f14b35&user_id=26474870%40N03
     body: 
     headers: 
   response: !ruby/struct:VCR::Response 
@@ -49,9 +49,9 @@
       content-type: 
       - text/xml; charset=utf-8
       x-served-by: 
-      - www219.flickr.mud.yahoo.com
+      - www85.flickr.mud.yahoo.com
       date: 
-      - Sun, 30 Oct 2011 23:26:59 GMT
+      - Mon, 31 Oct 2011 21:53:25 GMT
       content-length: 
       - "710"
       vary: 
@@ -67,6 +67,163 @@
       	<photo id="2599878610" owner="26474870@N03" secret="e25031d26a" server="3278" farm="4" title="gogogo" ispublic="0" isfriend="0" isfamily="0" />
       	<photo id="2591041131" owner="26474870@N03" secret="3dca342d4a" server="3228" farm="4" title="flickr test" ispublic="0" isfriend="0" isfamily="0" />
       </photos>
+      </rsp>
+
+    http_version: "1.1"
+- !ruby/struct:VCR::HTTPInteraction 
+  request: !ruby/struct:VCR::Request 
+    method: :get
+    uri: http://api.flickr.com:80/services/rest/?auth_token=72157626431091668-9a139d48d7307739&photo_id=2599123249&api_sig=ba34e282ce8d008fca9dbf86812f9b11&method=flickr.photos.getSizes&api_key=487eb5a7801c2f33c5d50a7c38f14b35
+    body: 
+    headers: 
+  response: !ruby/struct:VCR::Response 
+    status: !ruby/struct:VCR::ResponseStatus 
+      code: 200
+      message: OK
+    headers: 
+      p3p: 
+      - policyref="http://p3p.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE GOV"
+      content-type: 
+      - text/xml; charset=utf-8
+      x-served-by: 
+      - www109.flickr.mud.yahoo.com
+      date: 
+      - Mon, 31 Oct 2011 21:53:26 GMT
+      content-length: 
+      - "1562"
+      vary: 
+      - Accept-Encoding
+      cache-control: 
+      - private
+    body: |
+      <?xml version="1.0" encoding="utf-8" ?>
+      <rsp stat="ok">
+      <sizes canblog="1" canprint="1" candownload="1">
+      	<size label="Square" width="75" height="75" source="http://farm4.static.flickr.com/3054/2599123249_1573c5b7c2_s.jpg" url="http://www.flickr.com/photos/26474870@N03/2599123249/sizes/sq/" media="photo" />
+      	<size label="Thumbnail" width="100" height="67" source="http://farm4.static.flickr.com/3054/2599123249_1573c5b7c2_t.jpg" url="http://www.flickr.com/photos/26474870@N03/2599123249/sizes/t/" media="photo" />
+      	<size label="Small" width="240" height="161" source="http://farm4.static.flickr.com/3054/2599123249_1573c5b7c2_m.jpg" url="http://www.flickr.com/photos/26474870@N03/2599123249/sizes/s/" media="photo" />
+      	<size label="Medium" width="500" height="334" source="http://farm4.static.flickr.com/3054/2599123249_1573c5b7c2.jpg" url="http://www.flickr.com/photos/26474870@N03/2599123249/sizes/m/" media="photo" />
+      	<size label="Medium 640" width="640" height="428" source="http://farm4.static.flickr.com/3054/2599123249_1573c5b7c2_z.jpg" url="http://www.flickr.com/photos/26474870@N03/2599123249/sizes/z/" media="photo" />
+      	<size label="Large" width="1024" height="685" source="http://farm4.static.flickr.com/3054/2599123249_1573c5b7c2_b.jpg" url="http://www.flickr.com/photos/26474870@N03/2599123249/sizes/l/" media="photo" />
+      	<size label="Original" width="3872" height="2592" source="http://farm4.static.flickr.com/3054/2599123249_685702fd39_o.jpg" url="http://www.flickr.com/photos/26474870@N03/2599123249/sizes/o/" media="photo" />
+      </sizes>
+      </rsp>
+
+    http_version: "1.1"
+- !ruby/struct:VCR::HTTPInteraction 
+  request: !ruby/struct:VCR::Request 
+    method: :get
+    uri: http://api.flickr.com:80/services/rest/?auth_token=72157626431091668-9a139d48d7307739&photo_id=2599878584&api_sig=6fe497b18f247fdeed34c825869f4b6b&method=flickr.photos.getSizes&api_key=487eb5a7801c2f33c5d50a7c38f14b35
+    body: 
+    headers: 
+  response: !ruby/struct:VCR::Response 
+    status: !ruby/struct:VCR::ResponseStatus 
+      code: 200
+      message: OK
+    headers: 
+      p3p: 
+      - policyref="http://p3p.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE GOV"
+      content-type: 
+      - text/xml; charset=utf-8
+      x-served-by: 
+      - www59.flickr.mud.yahoo.com
+      date: 
+      - Mon, 31 Oct 2011 21:53:26 GMT
+      content-length: 
+      - "1564"
+      vary: 
+      - Accept-Encoding
+      cache-control: 
+      - private
+    body: |
+      <?xml version="1.0" encoding="utf-8" ?>
+      <rsp stat="ok">
+      <sizes canblog="1" canprint="1" candownload="1">
+      	<size label="Square" width="75" height="75" source="http://farm4.static.flickr.com/3099/2599878584_0242c432ce_s.jpg" url="http://www.flickr.com/photos/26474870@N03/2599878584/sizes/sq/" media="photo" />
+      	<size label="Thumbnail" width="100" height="100" source="http://farm4.static.flickr.com/3099/2599878584_0242c432ce_t.jpg" url="http://www.flickr.com/photos/26474870@N03/2599878584/sizes/t/" media="photo" />
+      	<size label="Small" width="240" height="240" source="http://farm4.static.flickr.com/3099/2599878584_0242c432ce_m.jpg" url="http://www.flickr.com/photos/26474870@N03/2599878584/sizes/s/" media="photo" />
+      	<size label="Medium" width="500" height="500" source="http://farm4.static.flickr.com/3099/2599878584_0242c432ce.jpg" url="http://www.flickr.com/photos/26474870@N03/2599878584/sizes/m/" media="photo" />
+      	<size label="Medium 640" width="640" height="640" source="http://farm4.static.flickr.com/3099/2599878584_0242c432ce_z.jpg" url="http://www.flickr.com/photos/26474870@N03/2599878584/sizes/z/" media="photo" />
+      	<size label="Large" width="1024" height="1024" source="http://farm4.static.flickr.com/3099/2599878584_0242c432ce_b.jpg" url="http://www.flickr.com/photos/26474870@N03/2599878584/sizes/l/" media="photo" />
+      	<size label="Original" width="2400" height="2400" source="http://farm4.static.flickr.com/3099/2599878584_a134c0ef67_o.jpg" url="http://www.flickr.com/photos/26474870@N03/2599878584/sizes/o/" media="photo" />
+      </sizes>
+      </rsp>
+
+    http_version: "1.1"
+- !ruby/struct:VCR::HTTPInteraction 
+  request: !ruby/struct:VCR::Request 
+    method: :get
+    uri: http://api.flickr.com:80/services/rest/?auth_token=72157626431091668-9a139d48d7307739&photo_id=2599878610&api_sig=c9d26534df7e19f4dbe573cd56e66550&method=flickr.photos.getSizes&api_key=487eb5a7801c2f33c5d50a7c38f14b35
+    body: 
+    headers: 
+  response: !ruby/struct:VCR::Response 
+    status: !ruby/struct:VCR::ResponseStatus 
+      code: 200
+      message: OK
+    headers: 
+      p3p: 
+      - policyref="http://p3p.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE GOV"
+      content-type: 
+      - text/xml; charset=utf-8
+      x-served-by: 
+      - www71.flickr.mud.yahoo.com
+      date: 
+      - Mon, 31 Oct 2011 21:53:26 GMT
+      content-length: 
+      - "1360"
+      vary: 
+      - Accept-Encoding
+      cache-control: 
+      - private
+    body: |
+      <?xml version="1.0" encoding="utf-8" ?>
+      <rsp stat="ok">
+      <sizes canblog="1" canprint="1" candownload="1">
+      	<size label="Square" width="75" height="75" source="http://farm4.static.flickr.com/3278/2599878610_e25031d26a_s.jpg" url="http://www.flickr.com/photos/26474870@N03/2599878610/sizes/sq/" media="photo" />
+      	<size label="Thumbnail" width="100" height="75" source="http://farm4.static.flickr.com/3278/2599878610_e25031d26a_t.jpg" url="http://www.flickr.com/photos/26474870@N03/2599878610/sizes/t/" media="photo" />
+      	<size label="Small" width="240" height="180" source="http://farm4.static.flickr.com/3278/2599878610_e25031d26a_m.jpg" url="http://www.flickr.com/photos/26474870@N03/2599878610/sizes/s/" media="photo" />
+      	<size label="Medium" width="500" height="375" source="http://farm4.static.flickr.com/3278/2599878610_e25031d26a.jpg" url="http://www.flickr.com/photos/26474870@N03/2599878610/sizes/m/" media="photo" />
+      	<size label="Medium 640" width="640" height="480" source="http://farm4.static.flickr.com/3278/2599878610_e25031d26a_z.jpg?zz=1" url="http://www.flickr.com/photos/26474870@N03/2599878610/sizes/z/" media="photo" />
+      	<size label="Original" width="640" height="480" source="http://farm4.static.flickr.com/3278/2599878610_1772c7cfbe_o.jpg" url="http://www.flickr.com/photos/26474870@N03/2599878610/sizes/o/" media="photo" />
+      </sizes>
+      </rsp>
+
+    http_version: "1.1"
+- !ruby/struct:VCR::HTTPInteraction 
+  request: !ruby/struct:VCR::Request 
+    method: :get
+    uri: http://api.flickr.com:80/services/rest/?auth_token=72157626431091668-9a139d48d7307739&photo_id=2591041131&api_sig=c0560ce552fd889ebea1c3e48ebaea06&method=flickr.photos.getSizes&api_key=487eb5a7801c2f33c5d50a7c38f14b35
+    body: 
+    headers: 
+  response: !ruby/struct:VCR::Response 
+    status: !ruby/struct:VCR::ResponseStatus 
+      code: 200
+      message: OK
+    headers: 
+      p3p: 
+      - policyref="http://p3p.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE GOV"
+      content-type: 
+      - text/xml; charset=utf-8
+      x-served-by: 
+      - www122.flickr.mud.yahoo.com
+      date: 
+      - Mon, 31 Oct 2011 21:53:26 GMT
+      content-length: 
+      - "1146"
+      vary: 
+      - Accept-Encoding
+      cache-control: 
+      - private
+    body: |
+      <?xml version="1.0" encoding="utf-8" ?>
+      <rsp stat="ok">
+      <sizes canblog="1" canprint="1" candownload="1">
+      	<size label="Square" width="75" height="75" source="http://farm4.static.flickr.com/3228/2591041131_3dca342d4a_s.jpg" url="http://www.flickr.com/photos/26474870@N03/2591041131/sizes/sq/" media="photo" />
+      	<size label="Thumbnail" width="100" height="78" source="http://farm4.static.flickr.com/3228/2591041131_3dca342d4a_t.jpg" url="http://www.flickr.com/photos/26474870@N03/2591041131/sizes/t/" media="photo" />
+      	<size label="Small" width="240" height="187" source="http://farm4.static.flickr.com/3228/2591041131_3dca342d4a_m.jpg" url="http://www.flickr.com/photos/26474870@N03/2591041131/sizes/s/" media="photo" />
+      	<size label="Medium" width="379" height="295" source="http://farm4.static.flickr.com/3228/2591041131_3dca342d4a.jpg" url="http://www.flickr.com/photos/26474870@N03/2591041131/sizes/m/" media="photo" />
+      	<size label="Original" width="379" height="295" source="http://farm4.static.flickr.com/3228/2591041131_ac22e54174_o.jpg" url="http://www.flickr.com/photos/26474870@N03/2591041131/sizes/o/" media="photo" />
+      </sizes>
       </rsp>
 
     http_version: "1.1"

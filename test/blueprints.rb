@@ -49,3 +49,7 @@ EbayAuction.blueprint do
   start_time { 15.minutes.from_now }
 end
 
+AdminUser.blueprint do
+  email { 'admin@example.com' }
+  password { 'password' }
+end
