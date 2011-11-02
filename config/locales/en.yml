@@ -69,11 +69,7 @@ en:
         reserve_price: "Must be at least $0.99"
         buy_it_now_price: "Must be at least $0.99"
   flashes:
-    antique_created: "Antique was created successfully"
-    antique_updated: "Antique was updated successfully"
     ebay_auction:
-      created: "Ebay Auction was created successfully"
-      updated: "Ebay Auction was updated successfully"
-      destroyed: "Ebay Auction was destroyed successfully"
+      updated: "Ebay auction was successfully updated."
       listed:
         pending: "The Ebay Auction will be listed soon!"

@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/dlindahl/http_status_exceptions.git
+  revision: cf89d88b7f6826a62448008e819b5909cd3194d6
+  specs:
+    http_status_exceptions (0.3.0)
+      rack (>= 1.1.1)
+
+GIT
   remote: git://github.com/dlindahl/stache.git
   revision: 549f0e3fc8961c1ab589f8d13ed7a2a1045870eb
   specs:
@@ -217,6 +224,7 @@ DEPENDENCIES
   fleakr (~> 0.7.1)
   formtastic (~> 2.0.1)
   heroku (~> 2.11.0)
+  http_status_exceptions!
   machinist (~> 1.0.6)
   mocha (~> 0.9.9)
   rails (~> 3.1.0)
