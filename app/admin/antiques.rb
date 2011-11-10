@@ -29,4 +29,28 @@ ActiveAdmin.register Antique do
     end
   end
 
+  controller do
+    include Admin::ResourceFlashHelper
+
+    def create
+      create! do |success, failure|
+        failure.html do
+          flash[:error] = resource_error_for @antique
+          super
+        end
+        success.html { redirect_to admin_antique_path( @antique) }
+      end
+    end
+
+    def update
+      update! do |success, failure|
+        failure.html do
+          flash[:error] = resource_error_for @antique
+          super
+        end
+      end
+    end
+
+  end
+
 end

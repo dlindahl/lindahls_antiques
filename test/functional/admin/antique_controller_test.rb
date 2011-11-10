@@ -76,7 +76,7 @@ class Admin::AntiquesControllerTest < ActionController::TestCase
         end
         context "with invalid Antique parameters" do
           setup { post :create, :antique => {} }
-          should_not set_the_flash
+          should set_the_flash.to %r{Oops! We found 7 errors with your Antique}
           should render_template(:new)
         end
       end
@@ -97,7 +97,7 @@ class Admin::AntiquesControllerTest < ActionController::TestCase
         context "with invalid Antique parameters" do
           setup { put :update, :id => @antique.id, :antique => @antique.attributes.merge('width' => 0) }
           should assign_to(:antique)
-          should_not set_the_flash
+          should set_the_flash.to %r{Oops! We found 1 error with your Antique}
           should respond_with(:success)
         end
       end
