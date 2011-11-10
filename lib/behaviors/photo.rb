@@ -19,6 +19,7 @@ module Behaviors
       end
 
       def flickr_user
+p ENV['FLICKR_USERNAME']
         @@flickr_user ||= Fleakr.user( ENV['FLICKR_USERNAME'] )
       end
     end
