@@ -6,41 +6,59 @@ ActiveAdmin.register EbayAuction do
   end
 
   controller do
-    before_filter :fetch_antique, :except => [ :index ]
+    include Admin::ResourceFlashHelper
 
     def index
       raise HTTPStatus::Forbidden, "The :index action is forbidden"
     end
 
     def new
-      @ebay_auction = @antique.ebay_auctions.build(
-        :title        => @antique.name,
-        :description  => @antique.description,
-        :start_time   => 15.minutes.from_now
-      )
+      new! do
+        @ebay_auction.title = @ebay_auction.antique.name
+        @ebay_auction.description = @ebay_auction.antique.description
+        @ebay_auction.start_time = 15.minutes.from_now
+      end
+    end
 
-      new!
+    def create
+      create! do |success, failure|
+        failure.html do
+          flash[:error] = resource_error_for @ebay_auction
+          super
+        end
+        success.html { redirect_to admin_antique_ebay_auction_path( @ebay_auction.antique, @ebay_auction) }
+      end
     end
 
     def update
-      @ebay_auction = EbayAuction.find_by_id params[:id]
-
-      if @ebay_auction.update_attributes( params[:ebay_auction] )
-        if params[:ebay_auction].keys == ['listing_status']
-          flash[:notice] = t("flashes.ebay_auction.listed.#{params[:ebay_auction][:listing_status]}")
-        else
-          flash[:notice] = t('flashes.ebay_auction.updated')
+      update! do |success, failure|
+        success.html do
+          flash[:notice] = t("flashes.ebay_auction.listed.#{params[:ebay_auction][:listing_status]}") if listing?
+          redirect_to admin_antique_ebay_auction_path( @ebay_auction.antique, @ebay_auction)
+        end
+        failure.html do
+          flash[:error] = resource_error_for @ebay_auction
+          super
         end
       end
+    end
 
-      update!
+    def destroy
+      destroy! { admin_antique_path( @ebay_auction.antique ) }
+    end
+
+  protected
+
+    def begin_of_association_chain
+      Antique.find_by_id params[:antique_id]
     end
 
   private
 
-    def fetch_antique
-      @antique = Antique.find_by_id params[:antique_id]
+    def listing?
+      params[:ebay_auction].keys == ['listing_status']
     end
+
   end
 
   form :partial => "form"

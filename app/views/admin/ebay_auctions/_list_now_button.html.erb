@@ -1,4 +1,4 @@
-<%= semantic_form_for [:admin, @antique, @ebay_auction] do |f| %>
+<%= semantic_form_for [:admin, @ebay_auction.antique, @ebay_auction] do |f| %>
   <%= f.hidden_field :listing_status, :value => :pending %>
   <%= f.submit "List Now!" %>
 <% end %>

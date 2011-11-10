@@ -1,4 +1,4 @@
-<%= semantic_form_for [:admin, @antique, @ebay_auction] do |f| %>
+<%= semantic_form_for [:admin, @ebay_auction.antique, @ebay_auction] do |f| %>
   <%= f.inputs do %>
     <%= f.input :listing_status, :as => :uneditable %>
     <%= f.input :title %>
@@ -9,14 +9,17 @@
     <%= f.input :current_price, :as => :uneditable %>
     <%= f.input :reserve_price %>
     <%= f.input :buy_it_now_price %>
-    <%= f.input :shipping_price %>
+    <%= f.input :shipping_price, :required => true %>
   <% end %>
   <%= f.inputs do %>
     <%= f.input :bids, :as => :uneditable %>
     <%= f.input :reserve_met, :as => :uneditable, :label => "Reserve Met?" %>
   <% end %>
   <%= f.inputs do %>
-    <%= f.input :length, :as => :select, :collection => [ ['1 Day', 1], ['3 Days', 3], ['5 Days', 5], ['7 Days', 7], ['10 Days',10] ], :include_blank => 'Select a listing length...' %>
+    <%= f.input :length,
+                :as => :select,
+                :required => true,
+                :collection => [ ['1 Day', 1], ['3 Days', 3], ['5 Days', 5], ['7 Days', 7], ['10 Days',10] ], :include_blank => 'Select a listing length...' %>
     <%= f.input :start_time %>
   <% end %>
   <%= f.buttons do %>
