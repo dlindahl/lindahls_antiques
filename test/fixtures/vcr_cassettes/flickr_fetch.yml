@@ -2,7 +2,7 @@
 - !ruby/struct:VCR::HTTPInteraction 
   request: !ruby/struct:VCR::Request 
     method: :get
-    uri: http://api.flickr.com:80/services/rest/?auth_token=72157626431091668-9a139d48d7307739&api_sig=6ca36693765810e3342ce05c29b78bf8&username=lindahlsantiques&method=flickr.people.findByUsername&api_key=487eb5a7801c2f33c5d50a7c38f14b35
+    uri: http://api.flickr.com:80/services/rest/?username=lindahlsantiques&auth_token=123&api_sig=123&api_key=123&method=flickr.people.findByUsername
     body: 
     headers: 
   response: !ruby/struct:VCR::Response 
@@ -15,9 +15,9 @@
       content-type: 
       - text/xml; charset=utf-8
       x-served-by: 
-      - www152.flickr.mud.yahoo.com
+      - www198.flickr.mud.yahoo.com
       date: 
-      - Mon, 31 Oct 2011 21:53:25 GMT
+      - Thu, 10 Nov 2011 05:22:01 GMT
       content-length: 
       - "155"
       vary: 
@@ -36,7 +36,7 @@
 - !ruby/struct:VCR::HTTPInteraction 
   request: !ruby/struct:VCR::Request 
     method: :get
-    uri: http://api.flickr.com:80/services/rest/?auth_token=72157626431091668-9a139d48d7307739&api_sig=e3b3a95492b5eedc476cdc50da36973e&tags=test101&method=flickr.photos.search&api_key=487eb5a7801c2f33c5d50a7c38f14b35&user_id=26474870%40N03
+    uri: http://api.flickr.com:80/services/rest/?user_id=26474870%40N03&auth_token=123&tags=test101&api_sig=123&api_key=123&method=flickr.photos.search
     body: 
     headers: 
   response: !ruby/struct:VCR::Response 
@@ -49,9 +49,9 @@
       content-type: 
       - text/xml; charset=utf-8
       x-served-by: 
-      - www85.flickr.mud.yahoo.com
+      - www219.flickr.mud.yahoo.com
       date: 
-      - Mon, 31 Oct 2011 21:53:25 GMT
+      - Thu, 10 Nov 2011 05:22:01 GMT
       content-length: 
       - "710"
       vary: 
@@ -73,7 +73,7 @@
 - !ruby/struct:VCR::HTTPInteraction 
   request: !ruby/struct:VCR::Request 
     method: :get
-    uri: http://api.flickr.com:80/services/rest/?auth_token=72157626431091668-9a139d48d7307739&photo_id=2599123249&api_sig=ba34e282ce8d008fca9dbf86812f9b11&method=flickr.photos.getSizes&api_key=487eb5a7801c2f33c5d50a7c38f14b35
+    uri: http://api.flickr.com:80/services/rest/?photo_id=2599123249&auth_token=123&api_sig=123&api_key=123&method=flickr.photos.getSizes
     body: 
     headers: 
   response: !ruby/struct:VCR::Response 
@@ -86,9 +86,9 @@
       content-type: 
       - text/xml; charset=utf-8
       x-served-by: 
-      - www109.flickr.mud.yahoo.com
+      - www139.flickr.mud.yahoo.com
       date: 
-      - Mon, 31 Oct 2011 21:53:26 GMT
+      - Thu, 10 Nov 2011 05:22:01 GMT
       content-length: 
       - "1562"
       vary: 
@@ -113,7 +113,7 @@
 - !ruby/struct:VCR::HTTPInteraction 
   request: !ruby/struct:VCR::Request 
     method: :get
-    uri: http://api.flickr.com:80/services/rest/?auth_token=72157626431091668-9a139d48d7307739&photo_id=2599878584&api_sig=6fe497b18f247fdeed34c825869f4b6b&method=flickr.photos.getSizes&api_key=487eb5a7801c2f33c5d50a7c38f14b35
+    uri: http://api.flickr.com:80/services/rest/?photo_id=2599878584&auth_token=123&api_sig=123&api_key=123&method=flickr.photos.getSizes
     body: 
     headers: 
   response: !ruby/struct:VCR::Response 
@@ -126,9 +126,9 @@
       content-type: 
       - text/xml; charset=utf-8
       x-served-by: 
-      - www59.flickr.mud.yahoo.com
+      - www136.flickr.mud.yahoo.com
       date: 
-      - Mon, 31 Oct 2011 21:53:26 GMT
+      - Thu, 10 Nov 2011 05:22:01 GMT
       content-length: 
       - "1564"
       vary: 
@@ -153,7 +153,7 @@
 - !ruby/struct:VCR::HTTPInteraction 
   request: !ruby/struct:VCR::Request 
     method: :get
-    uri: http://api.flickr.com:80/services/rest/?auth_token=72157626431091668-9a139d48d7307739&photo_id=2599878610&api_sig=c9d26534df7e19f4dbe573cd56e66550&method=flickr.photos.getSizes&api_key=487eb5a7801c2f33c5d50a7c38f14b35
+    uri: http://api.flickr.com:80/services/rest/?photo_id=2599878610&auth_token=123&api_sig=123&api_key=123&method=flickr.photos.getSizes
     body: 
     headers: 
   response: !ruby/struct:VCR::Response 
@@ -166,9 +166,9 @@
       content-type: 
       - text/xml; charset=utf-8
       x-served-by: 
-      - www71.flickr.mud.yahoo.com
+      - www223.flickr.mud.yahoo.com
       date: 
-      - Mon, 31 Oct 2011 21:53:26 GMT
+      - Thu, 10 Nov 2011 05:22:02 GMT
       content-length: 
       - "1360"
       vary: 
@@ -192,7 +192,7 @@
 - !ruby/struct:VCR::HTTPInteraction 
   request: !ruby/struct:VCR::Request 
     method: :get
-    uri: http://api.flickr.com:80/services/rest/?auth_token=72157626431091668-9a139d48d7307739&photo_id=2591041131&api_sig=c0560ce552fd889ebea1c3e48ebaea06&method=flickr.photos.getSizes&api_key=487eb5a7801c2f33c5d50a7c38f14b35
+    uri: http://api.flickr.com:80/services/rest/?photo_id=2591041131&auth_token=123&api_sig=123&api_key=123&method=flickr.photos.getSizes
     body: 
     headers: 
   response: !ruby/struct:VCR::Response 
@@ -205,9 +205,9 @@
       content-type: 
       - text/xml; charset=utf-8
       x-served-by: 
-      - www122.flickr.mud.yahoo.com
+      - www86.flickr.mud.yahoo.com
       date: 
-      - Mon, 31 Oct 2011 21:53:26 GMT
+      - Thu, 10 Nov 2011 05:22:02 GMT
       content-length: 
       - "1146"
       vary: 

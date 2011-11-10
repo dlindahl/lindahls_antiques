@@ -19,6 +19,20 @@ class ActiveSupport::TestCase
   setup { Sham.reset }
 end
 
+# This should allow Travis-CI to run the tests without setting Flickr API keys.
+# This *will*, however, make adding new FlickrAPI calls through VCR a bit tricky
+# since this will generate invalid API URIs.
+class Fleakr::Api::ParameterList
+  def authentication_token
+    "123"
+  end
+  def default_options
+    { :api_key => "123" }
+  end
+  def signature
+    "123"
+  end
+end
 
 VCR.config do |c|
   c.cassette_library_dir = 'test/fixtures/vcr_cassettes'
