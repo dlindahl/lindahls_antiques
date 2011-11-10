@@ -16,7 +16,13 @@ require 'machinist/active_record'
 require File.dirname(__FILE__) + '/blueprints'
 
 class ActiveSupport::TestCase
-  setup { Sham.reset }
+  setup do
+    Sham.reset
+
+    user = Fleakr::Objects::User.new
+    user.id = "26474870@N03" # from ENV['FLICKR_USERNAME']
+    Fleakr.stubs(:user).returns( user )
+  end
 end
 
 # This should allow Travis-CI to run the tests without setting Flickr API keys.

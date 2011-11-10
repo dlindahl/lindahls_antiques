@@ -36,7 +36,7 @@
 - !ruby/struct:VCR::HTTPInteraction 
   request: !ruby/struct:VCR::Request 
     method: :get
-    uri: http://api.flickr.com:80/services/rest/?user_id=26474870%40N03&auth_token=123&tags=test101&api_sig=123&api_key=123&method=flickr.photos.search
+    uri: http://api.flickr.com:80/services/rest/?tags=test101&api_key=123&user_id=26474870%40N03&auth_token=123&method=flickr.photos.search
     body: 
     headers: 
   response: !ruby/struct:VCR::Response 
@@ -73,7 +73,7 @@
 - !ruby/struct:VCR::HTTPInteraction 
   request: !ruby/struct:VCR::Request 
     method: :get
-    uri: http://api.flickr.com:80/services/rest/?photo_id=2599123249&auth_token=123&api_sig=123&api_key=123&method=flickr.photos.getSizes
+    uri: http://api.flickr.com:80/services/rest/?api_key=123&photo_id=2599123249&auth_token=123&method=flickr.photos.getSizes
     body: 
     headers: 
   response: !ruby/struct:VCR::Response 
@@ -113,7 +113,7 @@
 - !ruby/struct:VCR::HTTPInteraction 
   request: !ruby/struct:VCR::Request 
     method: :get
-    uri: http://api.flickr.com:80/services/rest/?photo_id=2599878584&auth_token=123&api_sig=123&api_key=123&method=flickr.photos.getSizes
+    uri: http://api.flickr.com:80/services/rest/?api_key=123&photo_id=2599878584&auth_token=123&method=flickr.photos.getSizes
     body: 
     headers: 
   response: !ruby/struct:VCR::Response 
@@ -153,7 +153,7 @@
 - !ruby/struct:VCR::HTTPInteraction 
   request: !ruby/struct:VCR::Request 
     method: :get
-    uri: http://api.flickr.com:80/services/rest/?photo_id=2599878610&auth_token=123&api_sig=123&api_key=123&method=flickr.photos.getSizes
+    uri: http://api.flickr.com:80/services/rest/?api_key=123&photo_id=2599878610&auth_token=123&method=flickr.photos.getSizes
     body: 
     headers: 
   response: !ruby/struct:VCR::Response 
@@ -192,7 +192,7 @@
 - !ruby/struct:VCR::HTTPInteraction 
   request: !ruby/struct:VCR::Request 
     method: :get
-    uri: http://api.flickr.com:80/services/rest/?photo_id=2591041131&auth_token=123&api_sig=123&api_key=123&method=flickr.photos.getSizes
+    uri: http://api.flickr.com:80/services/rest/?api_key=123&photo_id=2591041131&auth_token=123&method=flickr.photos.getSizes
     body: 
     headers: 
   response: !ruby/struct:VCR::Response 
