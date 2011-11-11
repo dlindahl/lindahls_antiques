@@ -32,7 +32,7 @@ group :test do
   gem 'shoulda', :git => 'https://github.com/thoughtbot/shoulda.git'
   gem 'autotest', '~> 4.4.6'
   gem 'autotest-rails', '~> 4.1.0'
-  gem 'test_notifier', '~> 0.3.6'
+  gem 'test_notifier', '~> 1.0.0'
   gem 'rcov', '~> 0.9.9'
   gem 'vcr', '~> 1.11.3'
   gem 'fakeweb', '~> 1.3.0'
