@@ -27,7 +27,7 @@ group :test do
   gem 'redgreen', '~> 1.2.2'
   gem 'machinist', '~> 1.0.6'
   gem 'faker', '~> 1.0.1'
-  gem 'mocha', '~> 0.9.9'
+  gem 'mocha', '~> 0.10.0'
   # gem 'shoulda', '~> 2.11.3'
   gem 'shoulda', :git => 'https://github.com/thoughtbot/shoulda.git'
   gem 'autotest', '~> 4.4.6'
