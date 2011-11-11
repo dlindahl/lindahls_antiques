@@ -104,7 +104,7 @@ GEM
       rails (~> 3.0)
     fssm (0.2.7)
     has_scope (0.5.1)
-    heroku (2.11.0)
+    heroku (2.13.0)
       launchy (>= 0.3.2)
       rest-client (~> 1.6.1)
       rubyzip
@@ -224,7 +224,7 @@ DEPENDENCIES
   fakeweb (~> 1.3.0)
   fleakr (~> 0.7.1)
   formtastic (~> 2.0.1)
-  heroku (~> 2.11.0)
+  heroku (~> 2.13.0)
   http_status_exceptions!
   machinist (~> 1.0.6)
   mocha (~> 0.10.0)

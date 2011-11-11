@@ -20,7 +20,7 @@ gem 'stache', '~> 0.1.0', :git => "git://github.com/dlindahl/stache.git"
 gem 'http_status_exceptions', :git => 'git://github.com/dlindahl/http_status_exceptions.git'
 
 group :development do
-  gem 'heroku', '~> 2.11.0'
+  gem 'heroku', '~> 2.13.0'
 end
 
 group :test do
