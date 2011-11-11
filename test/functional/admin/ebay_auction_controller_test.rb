@@ -34,7 +34,7 @@ class Admin::EbayAuctionsControllerTest < ActionController::TestCase
                 assert_select ".description em"
               end
               should %q{display a "List Now" button} do
-                assert_select "input[value=List Now!]"
+                assert_select "button", :text => "List Now!"
               end
             end
             context "pending" do
