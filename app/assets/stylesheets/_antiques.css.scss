@@ -1,1 +1,22 @@
+#title_bar {
+  form {
+    display: inline-block;
+  }
+
+  #auction_off {
+    @include dark-button;
+    padding: .8em 1.5em .7em 1.5em;
+  }
+
+  #list_auction_now {
+    @include gradient(
+      adjust-lightness( rgb(64, 148, 56), 10 ),
+      adjust-lightness( rgb(64, 148, 56), -5 )
+    );
+    color: #efefef;
+    text-shadow: #000 0 1px 0;
+    &:hover { color: #fff; }
+  }
+}
+
 @import "antiques/index";

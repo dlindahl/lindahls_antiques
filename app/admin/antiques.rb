@@ -1,7 +1,7 @@
 ActiveAdmin.register Antique do
 
   action_item :only => :show do
-    link_to "Auction Off!", new_admin_antique_ebay_auction_path(antique)
+    link_to "Auction Off!", new_admin_antique_ebay_auction_path(antique), :id => 'auction_off'
   end
 
   index :as => :grid do |antique|

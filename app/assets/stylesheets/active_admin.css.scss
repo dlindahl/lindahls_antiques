@@ -4,3 +4,21 @@
 
 // To customize the Active Admin interfaces, add your
 // styles here:
+
+/*
+* Add support for BUTTON elements in the Title Bar.
+* Same styles as found in https://github.com/gregbell/active_admin/blob/a4e93245a6d12b25d6a9931cf68b8b23f33ea4d1/lib/active_admin/views/stylesheets/active_admin.scss#L56-65
+*/
+#title_bar .action_items button {
+  border: 0;
+  background: none;
+
+  @include light-button;
+  @include icon(#777, 0.8em); 
+  @include gradient(#f9f9f9, #dddbdb);
+  display: inline-block;
+  padding: .8em 1.5em .7em 1.5em;
+  border: 1px solid #f8f8f8;
+  span.icon { vertical-align: bottom; margin-right: 4px;} 
+  &:hover{ @include icon-color(#000); }
+}
