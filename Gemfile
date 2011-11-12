@@ -43,8 +43,8 @@ group :test do
   gem 'fakeweb', '~> 1.3.0'
 end
 
+gem 'sass-rails', "~> 3.1.4"
 group :assets do
-  gem 'sass-rails', "  ~> 3.1.4"
   gem 'coffee-rails', "~> 3.1.0"
   gem 'uglifier', '~> 1.0.4'
   gem 'compass', '~> 0.12.alpha'
