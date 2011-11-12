@@ -92,7 +92,7 @@ ActiveRecord::Schema.define(:version => 20111030211705) do
     t.string   "size"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "flickr_id"
+    t.integer  "flickr_id"
   end
 
 end
