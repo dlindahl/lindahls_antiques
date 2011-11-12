@@ -6,7 +6,9 @@ gem 'rails', '~> 3.1.0'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3', '~> 1.3.3'
+group :development, :test do
+  gem 'sqlite3', '~> 1.3.3'
+end
 
 gem 'devise', '~> 1.4.9'
 gem 'fleakr', '~> 0.7.1'
