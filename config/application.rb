@@ -48,5 +48,8 @@ module LindahlsAntiques
     # Don't initialize the application during asset precompilation.
     # This is required in order to deploy to Heroku's Cedar stack.
     config.assets.initialize_on_precompile = false
+
+    # Ensure that Active Admin's assets get precompiled.
+    config.assets.precompile += %w{active_admin.css active_admin_custom.css active_admin.js}
   end
 end
