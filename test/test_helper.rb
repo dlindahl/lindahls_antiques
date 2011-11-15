@@ -8,9 +8,9 @@ silence_stream(STDOUT, &load_schema)
 
 require 'rails/test_help'
 
-require 'test_notifier/runner/test_unit'
+# require 'test_notifier/runner/test_unit'
 
-TestNotifier.default_notifier = :growl
+# TestNotifier.default_notifier = :growl
 
 require 'machinist/active_record'
 require File.dirname(__FILE__) + '/blueprints'
