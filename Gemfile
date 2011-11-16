@@ -45,7 +45,7 @@ group :test do
 end
 
 gem 'sass-rails', "~> 3.1.4"
-gem 'compass', '~> 0.12.alpha'
+gem 'compass', :git => 'git://github.com/chriseppstein/compass.git'
 group :assets do
   gem 'coffee-rails', "~> 3.1.0"
   gem 'uglifier', '~> 1.0.4'
