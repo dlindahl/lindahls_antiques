@@ -1,6 +1,8 @@
 ENV["RAILS_ENV"] = "test"
 require File.expand_path('../../config/environment', __FILE__)
 
+require 'purdytest'
+
 # In-memory SQLite Rails testing
 # From http://www.osmonov.com/2011/01/in-memory-sqlite-database-for-testing.html
 load_schema = lambda { load "#{Rails.root}/db/schema.rb" }

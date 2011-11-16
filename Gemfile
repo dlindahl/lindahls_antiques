@@ -29,19 +29,19 @@ group :development do
 end
 
 group :test do
-  # gem 'redgreen', '~> 1.2.2'
-  # gem 'mynyml-redgreen'
-  gem 'machinist', '~> 1.0.6'
-  gem 'faker', '~> 1.0.1'
-  gem 'mocha', '~> 0.10.0', :require => false
+  gem 'minitest',   '~> 2.8.0'
+  gem 'purdytest',  '~> 1.0.0', :require => false
+  gem 'machinist',  '~> 1.0.6'
+  gem 'faker',      '~> 1.0.1'
+  gem 'mocha',      '~> 0.10.0', :require => false
   # gem 'shoulda', '~> 2.11.3'
-  gem 'shoulda', :git => 'https://github.com/thoughtbot/shoulda.git'
+  gem 'shoulda',    :git => 'https://github.com/thoughtbot/shoulda.git'
   # gem 'autotest', '~> 4.4.6'
   # gem 'autotest-rails', '~> 4.1.0'
   # gem 'test_notifier', '~> 1.0.0'
-  gem 'rcov', '~> 0.9.9'
-  gem 'vcr', '~> 1.11.3'
-  gem 'fakeweb', '~> 1.3.0'
+  gem 'rcov',       '~> 0.9.9'
+  gem 'vcr',        '~> 1.11.3'
+  gem 'fakeweb',    '~> 1.3.0'
 end
 
 gem 'sass-rails', "~> 3.1.4"
