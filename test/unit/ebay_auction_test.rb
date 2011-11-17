@@ -161,6 +161,23 @@ class EbayAuctionTest < ActiveSupport::TestCase
         assert_equal "ended", @auction.listing_status
       end
     end
+    context "for an Antique that already has an active Auction" do
+      subject do
+        antique = VCR.use_cassette('flickr_fetch') { Antique.make }
+        active_auction = antique.ebay_auctions.create( EbayAuction.make_unsaved(:antique => antique, :listing_status => 'active').attributes )
+
+        EbayAuction.make_unsaved(:antique => antique)
+      end
+      should "not be valid" do
+        assert_equal false, subject.valid?
+      end
+      should "have an error message indicating that there are other active auctions" do
+        auction = subject
+        auction.valid?
+
+        assert_equal ['Antique already has an active auction'], subject.errors[:base]
+      end
+    end
   end
 
   context "A saved instance of EbayAuction" do

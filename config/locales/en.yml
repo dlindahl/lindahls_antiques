@@ -49,6 +49,8 @@ en:
     errors:
       models:
         ebay_auction:
+          base:
+            other_active_auctions: "Antique already has an active auction"
           attributes:
             date_ended:
               invalid_datetime: "is invalid"

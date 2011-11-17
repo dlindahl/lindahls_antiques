@@ -23,6 +23,8 @@ class EbayAuction < ActiveRecord::Base
   validates_datetime :start_time
   validates_datetime :end_time, :date_ended, :on_or_after => :start_time, :allow_blank => true
 
+  validate :no_other_active_auctions
+
   state_machine :listing_status, :initial => :draft do
     state :draft
     state :pending
@@ -49,6 +51,14 @@ class EbayAuction < ActiveRecord::Base
       transition :completed => :ended
     end
 
+  end
+
+private
+
+  def no_other_active_auctions
+    if antique and (antique.ebay_auctions - [self]).any?(&:active?)
+      errors[:base] = I18n.t('activerecord.errors.models.ebay_auction.base.other_active_auctions')
+    end
   end
 
 end
