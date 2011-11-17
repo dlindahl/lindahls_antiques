@@ -1,3 +1,4 @@
+rvm: 1.9.2
 script: "bundle exec rake db:create db:schema:load db:test:prepare test"
 env:
   - FLICKR_USERNAME=lindahlsantiques
