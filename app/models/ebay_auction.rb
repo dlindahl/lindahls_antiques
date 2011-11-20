@@ -1,4 +1,5 @@
 require 'behaviors/ebay_auction'
+require 'interrogatives/ebay_auction'
 
 class EbayAuction < ActiveRecord::Base
   include Behaviors::EbayAuction

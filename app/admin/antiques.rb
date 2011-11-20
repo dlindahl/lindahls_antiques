@@ -18,7 +18,12 @@ ActiveAdmin.register Antique do
     active_admin_comments
   end
 
+  sidebar :ebay_auctions, :only => [:show, :edit] do
+    render 'admin/ebay_auctions/sidebar'
+  end
+
   sidebar :photos, :only => [:show, :edit] do
+    # TODO: Issue #20 - Rename template to photos/sidebar
     render 'admin/photos/photos', :photos => antique.photos.square.all
   end
 

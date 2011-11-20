@@ -14,8 +14,7 @@ class Admin::Photos::PhotosTest < ActiveSupport::TestCase
   end
 
   should "generate a link to refresh photos" do
-    view = subject
-    view.expects(:refresh_admin_antique_photos_path).returns('/foo')
+    subject.expects(:refresh_admin_antique_photos_path).returns('/foo')
 
     assert_equal '<a href="/foo">Refresh?</a>', subject.refresh_link
   end

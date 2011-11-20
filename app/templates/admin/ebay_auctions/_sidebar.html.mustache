@@ -1,0 +1,16 @@
+<dl>
+  {{#ebay_auctions}}
+    <dt>
+      <span class="status">{{listing_status}}</span>
+      <time datetime="{{created_at}}" title="{{humanized_created_at}}">{{creation_time_span}} ago</time>
+    </dt>
+    <dd>
+      <a href="{{show_auction_path}}" title="Click for details">{{listing_result}}</a>
+    </dd>
+  {{/ebay_auctions}}
+  {{^ebay_auctions}}
+    <dd>
+      No previous auctions. {{{auction_off_link}}}
+    </dd>
+  {{/ebay_auctions}}
+</dl>
