@@ -75,3 +75,18 @@ en:
       updated: "Ebay auction was successfully updated."
       listed:
         pending: "The Ebay Auction will be listed soon!"
+
+  status:
+    ebay_auction:
+      listing:
+        draft:
+          valid_record: "Ready to list!"
+          invalid_record: "Not ready for listing."
+        pending: "Preparing to list on eBay."
+        active:
+          no_activity: "No activity"
+          bids: "bid"
+          current_price: " for %{current_price}"
+          unmet_reserve: " (reserve not met)"
+          views: "%{hit_count} views"
+          watchers: "%{watch_count} watchers"

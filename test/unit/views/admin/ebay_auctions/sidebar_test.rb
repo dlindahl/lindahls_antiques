@@ -20,10 +20,10 @@ class Admin::EbayAuctions::SidebarTest < ActiveSupport::TestCase
     assert subject.ebay_auctions.first.is_a? Admin::EbayAuctions::Sidebar::EbayAuctionPresenter
   end
 
-  should "generate a link to auction off the item" do
+  should "generate a path to create an auction for the item" do
     subject.expects(:new_admin_antique_ebay_auction_path).returns('/foo')
 
-    assert_equal %q{<a href="/foo">Auction Off?</a>}, subject.auction_off_link
+    assert_equal "/foo", subject.create_auction_path
   end
 
   context "The Sidebar::EbayAuctionPresenter" do
@@ -103,13 +103,13 @@ class Admin::EbayAuctions::SidebarTest < ActiveSupport::TestCase
       context "has completed" do
         setup { @ebay_auction.stubs(:listing_status).returns("completed") }
         should "indicate a specific listing result" do
-          assert_equal "[COMPLETED RESULT CONTENT NOT AVAILABLE]", subject.listing_result
+          assert_equal "translation missing: en.status.ebay_auction.listing.completed", subject.listing_result
         end
       end
       context "has ended" do
         setup { @ebay_auction.stubs(:listing_status).returns("ended") }
         should "indicate a specific listing result" do
-          assert_equal "[ENDED RESULT CONTENT NOT AVAILABLE]", subject.listing_result
+          assert_equal "translation missing: en.status.ebay_auction.listing.ended", subject.listing_result
         end
       end
     end

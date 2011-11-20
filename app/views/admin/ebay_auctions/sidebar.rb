@@ -5,8 +5,8 @@ module Admin::EbayAuctions
       antique.ebay_auctions.map{ |ebay_auction| EbayAuctionPresenter.new(ebay_auction, self) }
     end
 
-    def auction_off_link
-      link_to 'Auction Off?', new_admin_antique_ebay_auction_path(antique)
+    def create_auction_path
+      new_admin_antique_ebay_auction_path(antique)
     end
 
     class EbayAuctionPresenter
@@ -46,39 +46,40 @@ module Admin::EbayAuctions
     private
 
       def draft_result
-        @object.valid? ? "Ready to list!" : "Not ready for listing."
+        I18n.t "status.ebay_auction.listing.draft." + (@object.valid? ? "valid" : "invalid") + "_record"
       end
 
       def pending_result
-        "Preparing to list on eBay."
+        I18n.t "status.ebay_auction.listing.pending"
       end
 
       # TODO: i18n this stuff?
       # ebay_auction -> results (activity?) -> none|bids+price+views+watchers|completed|ended, etc.
       def active_result
         if @object.bids.zero? and @object.hit_count.zero? and @object.watch_count.zero?
-          "No activity"
+          I18n.t "status.ebay_auction.listing.active.no_activity"
         else
           [].tap do |output|
             if @object.bids
-              output << @template.pluralize( @object.bids, 'bid' ) + " for #{@template.number_to_currency(@object.current_price)}".tap do |bid_output|
-                bid_output << " (reserve not met)" unless @object.reserve_met?
+              output << @template.pluralize( @object.bids, I18n.t("status.ebay_auction.listing.active.bids") ) +
+                        I18n.t( "status.ebay_auction.listing.active.current_price", :current_price => @template.number_to_currency(@object.current_price) ).tap do |bid_output|
+                bid_output << I18n.t( "status.ebay_auction.listing.active.unmet_reserve" ) unless @object.reserve_met?
               end
             end
-            output << "#{@object.hit_count} views" if @object.hit_count
-            output << "#{@object.watch_count} watchers" if @object.watch_count
+            output << I18n.t( "status.ebay_auction.listing.active.views", :hit_count => @object.hit_count ) if @object.hit_count
+            output << I18n.t( "status.ebay_auction.listing.active.watchers", :watch_count => @object.watch_count ) if @object.watch_count
           end.to_sentence
         end
       end
 
       # TODO: Implement
       def completed_result
-        "[COMPLETED RESULT CONTENT NOT AVAILABLE]"
+        I18n.t( "status.ebay_auction.listing.completed" )
       end
 
       # TODO: Implement
       def ended_result
-        "[ENDED RESULT CONTENT NOT AVAILABLE]"
+        I18n.t( "status.ebay_auction.listing.ended" )
       end
 
     end
