@@ -1,0 +1,21 @@
+api_keys: &api_keys
+  auth_token: <%= ENV['EBAY_AUTH_TOKEN'] %>
+  dev_id: <%= ENV['EBAY_DEVELOPER_ID'] %>
+  app_id: <%= ENV['EBAY_APPLICATION_ID'] %>
+  cert: <%= ENV['EBAY_CERTIFICATE'] %>
+
+development:
+  <<: *api_keys
+  use_sandbox: true
+
+test:
+  <<: *api_keys
+  use_sandbox: true
+
+staging:
+  <<: *api_keys
+  use_sandbox: false
+
+production:
+  <<: *api_keys
+  use_sandbox: false

@@ -15,6 +15,11 @@ end
 
 gem 'devise', '~> 1.4.9'
 gem 'fleakr', '~> 0.7.1'
+
+gem "httparty", "0.8.1"
+gem 'ebayapi', :git => "git://github.com/UGE-developer/ebay.git"
+gem "ebay_api_wrapper", :path => "../ebay_api_wrapper"
+
 gem 'formtastic', '~> 2.0.1'
 gem 'rdiscount', '~> 1.6.8'
 gem 'validates_timeliness', '~> 3.0.2'
