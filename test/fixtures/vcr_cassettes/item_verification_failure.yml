@@ -1,0 +1,66 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :post
+    uri: https://api.sandbox.ebay.com:443/ws/api.dll
+    body: !!null 
+    headers:
+      x-ebay-api-compatibility-level:
+      - '679'
+      x-ebay-api-session-certificate:
+      - 9cd0e5fb-47d7-4b91-9b9c-f2fe8885732c;Lindahls-b096-40bd-a100-c1d539a503c7;9b5f6bda-6d97-4b63-b670-d4d3fc38eb68
+      x-ebay-api-dev-name:
+      - 9cd0e5fb-47d7-4b91-9b9c-f2fe8885732c
+      x-ebay-api-app-name:
+      - Lindahls-b096-40bd-a100-c1d539a503c7
+      x-ebay-api-cert-name:
+      - 9b5f6bda-6d97-4b63-b670-d4d3fc38eb68
+      x-ebay-api-call-name:
+      - VerifyAddItem
+      x-ebay-api-siteid:
+      - '0'
+      content-type:
+      - text/xml
+      accept-encoding:
+      - gzip
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      content-type:
+      - text/xml
+      content-encoding:
+      - gzip
+      server:
+      - Apache-Coyote/1.1
+      x-ebay-api-pool-name:
+      - ___cDRidW8ycGRoY2FqfmRsd2M=
+      x-ebay-api-server-name:
+      - ___dm8uc2s3Myg3PjAwNDEzKjc3LTI3KTE8KDYyPz43OzU=
+      x-ebay-esb-app-name:
+      - Lindahls-b096-40bd-a100-c1d539a503c7
+      x-ebay-esb-call-name:
+      - VerifyAddItem
+      x-ebay-esb-guid:
+      - urn:uuid:FBD3FD8DF65F899E491322097282794
+      x-ebay-esb-siteid:
+      - '0'
+      date:
+      - Tue, 22 Nov 2011 21:01:16 GMT
+      content-length:
+      - '522'
+    body: !binary |-
+      H4sIAAAAAAAAAK2WXW/aMBSG7/crUO5LYoRGhYwrQqCLxFrERy92g1znEKw6
+      duQP1vz7OWmrSpvWMVwpsWLnnCevj+1zgm+eK9E7gTZcyUmE+knUA8lUwWU5
+      iXbbxdV1dEO+4AfQ/NBMiyK3UK3B1Eoa6HlfaSaR03IMj7QZ05qbMaTLlBqY
+      qcobgbQmInjLKzCWVjUZJAhd+Wsw2A7QOEFj9LV/PRz9wPG7DZ6yJ7JxjIEx
+      OG477fdbhWQ0HOH4rYNTx0VB5n5wP7tfz/fp7i5bzrM9GiKUJKPhfo1w/GKE
+      W+F5RhIcvz7hBYDpWoLvaAVk6pj12CXI0h79MI674daix5zWPi5NnvmobLKI
+      JH1P6nxf2ndMqkQR4O2a3N6pn5cTZtRCqXSzAGqdhgAt4YRbKgToZiWcCZfx
+      CgsA8WcoVpozyJym7VoHzywAwA82ZyESvvHyuPS3vRyR+1OszwkE+gBhQcsu
+      mlSczfu7pCU31iefDAwvJehg0OUzWx2VVRk3taAB69xRLnf3uRb0CS4HbNgR
+      CifOiMQHDPdouRUBKlKli5DFXGm1ouwpdbIIkkENZ7u61LSAz+A9UOE+BeSz
+      0snn7TP37D/j1CbcUEnf/b7V5hZ0RWWzAarZfxfFtvUl1p8hppy0a6DGl+1N
+      DYxTcX84gMbxby+76v7nrwb5BWxQxwupCAAA
+    http_version: '1.1'

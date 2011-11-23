@@ -26,22 +26,33 @@ class EbayAuction < ActiveRecord::Base
 
   validate :no_other_active_auctions
 
+  # draft <=> verified => pending => active => completed => ended
+  # new   <=> verify   => enqueue => list   => complete  => end
   state_machine :listing_status, :initial => :draft do
     state :draft
+    state :verified
     state :pending
     state :active
     state :completed
     state :ended
 
-    event :submit do
-      transition :draft => :pending
+    # TODO: Think about this API... not sure its as clear as it should be
+    event :verify do
+      transition :draft => :verified, :if => :valid?
+    end
+    # before_transition :draft => :verified do |ebay_auction|
+    #   ebay_auction.verify_item!
+    # end
+
+    event :enqueue do
+      transition :verified => :pending
     end
 
     event :list do
-      transition :pending => :active, :if => :valid?
+      transition :pending => :active
     end
     before_transition :pending => :active do |ebay_auction|
-      ebay_auction.list_auction!
+      ebay_auction.submit_to_ebay!
     end
 
     event :complete do

@@ -1,4 +1,4 @@
-require File.dirname(__FILE__) + '/../test_helper'
+require File.expand_path( File.dirname(__FILE__) + '/../test_helper' )
 
 class EbayAuctionTest < ActiveSupport::TestCase
 
@@ -102,7 +102,7 @@ class EbayAuctionTest < ActiveSupport::TestCase
       should allow_value(54.0).for(:buy_it_now_price)
       should allow_value(54.0).for(:reserve_price)
     end
-    context "that is submitted" do
+    context "that is a verified" do
       subject do
         VCR.use_cassette('flickr_fetch') do
           EbayAuction.make(:antique => Antique.make)
@@ -110,7 +110,21 @@ class EbayAuctionTest < ActiveSupport::TestCase
       end
       setup do
         @auction = subject
-        @auction.submit!
+        @auction.verify!
+      end
+      should "be verified" do
+        assert_equal "verified", @auction.listing_status
+      end
+    end
+    context "that is enqueued" do
+      subject do
+        VCR.use_cassette('flickr_fetch') do
+          EbayAuction.make(:antique => Antique.make, :listing_status => 'verified')
+        end
+      end
+      setup do
+        @auction = subject
+        @auction.enqueue!
       end
       should "be pending" do
         assert_equal "pending", @auction.listing_status
@@ -126,8 +140,8 @@ class EbayAuctionTest < ActiveSupport::TestCase
         @auction = subject
         @auction.list!
       end
-      before_should "attempt to list the Auction on Ebay" do
-        EbayAuction.any_instance.expects(:list_auction!)
+      before_should "attempt to submit the Auction to Ebay" do
+        EbayAuction.any_instance.expects(:submit_to_ebay!)
       end
       should "be Active" do
         assert_equal "active", @auction.listing_status
