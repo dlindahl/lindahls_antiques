@@ -43,6 +43,18 @@ ActiveAdmin.register EbayAuction do
       end
     end
 
+    def verify
+      @ebay_auction = EbayAuction.find_by_id params[:id]
+
+      @ebay_auction.verify_item!
+
+      if @ebay_auction.valid?
+        render :text => response.inspect
+      else
+        render :text => "errors!"
+      end
+    end
+
     def destroy
       destroy! { admin_antique_path( @ebay_auction.antique ) }
     end

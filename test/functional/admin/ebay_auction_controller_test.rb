@@ -1,4 +1,4 @@
-require File.dirname(__FILE__) + '/../../test_helper'
+require File.expand_path( File.dirname(__FILE__) + '/../../test_helper' )
 
 class Admin::EbayAuctionsControllerTest < ActionController::TestCase
   include Devise::TestHelpers
@@ -101,6 +101,21 @@ class Admin::EbayAuctionsControllerTest < ActionController::TestCase
             setup { post :create, :antique_id => @antique.id, :ebay_auction => {} }
             should set_the_flash.to %r{Oops! We found 5 errors}
             should render_template(:new)
+          end
+        end
+        context ":verify" do
+          context "with a listable EbayAuction" do
+            setup do
+              @ebay_auction = EbayAuction.make(:antique => @antique)
+              VCR.use_cassette('item_verification_success') do
+                post :verify, :antique_id => @antique.id, :id => @ebay_auction.id
+              end
+            end
+            should assign_to(:ebay_auction)
+            should "prompt the user to accept additional listing fees" do
+p @response.body
+              assert_select 'a[href="foo"]'
+            end
           end
         end
       end

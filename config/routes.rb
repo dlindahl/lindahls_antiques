@@ -9,7 +9,11 @@ LindahlsAntiques::Application.routes.draw do
       resources :photos do
         get :refresh, :on => :collection
       end
-      resources :ebay_auctions
+      resources :ebay_auctions do
+        member do
+          post :verify
+        end
+      end
     end
   end
 

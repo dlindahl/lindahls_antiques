@@ -1,4 +1,4 @@
-<%= semantic_form_for [:admin, @ebay_auction.antique, @ebay_auction] do |f| %>
-  <%= f.hidden_field :listing_status, :value => :pending %>
+<%= form_tag verify_admin_antique_ebay_auction_path( @ebay_auction.antique, @ebay_auction ) do |f| %>
+  <%#= f.hidden_field :listing_status, :value => :pending %>
   <button id="list_auction_now">List Now!</button>
 <% end %>
