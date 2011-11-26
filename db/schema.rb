@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(:version => 20111125235628) do
 
   create_table "payments", :force => true do |t|
     t.integer  "paymentable_id"
+    t.string   "paymentable_type"
     t.decimal  "amount",           :precision => 7, :scale => 2, :default => 0.0
     t.string   "type"
     t.string   "reference_number"
