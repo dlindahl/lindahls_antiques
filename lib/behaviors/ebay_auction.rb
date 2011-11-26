@@ -3,18 +3,12 @@ module Behaviors
 
     include EbayApiWrapper
 
-    # TODO: Add verified flag?
     def verify_item!
-      # p "Verifying item..."
       response = with_ebay_api { |ebay_api| ebay_api.verify_add_item(:item => to_ebay_item) }
 
       if response.successful?
-        # p "Item ID: #{response.item_id}"
-        # p "Fee summary: "
-
-        # TODO: Figure out how to report listing errors back to the user. ListingError? SubmissionError?
         response.fees.select{ |f| !f.fee.zero? }.each do |f|
-          # puts "  #{f.name}: #{f.fee.format(:with_currency)}"
+          self.listing_fees.build( :description => f.name, :amount => f.fee.to_f )
         end
       else
         response.errors.full_messages.each { |msg| self.errors.add(:base, msg) }

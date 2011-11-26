@@ -1,11 +1,20 @@
+require 'ostruct'
 require File.expand_path( File.dirname(__FILE__) + '/../../test_helper' )
 
 class MockEbayAuction
   include Behaviors::EbayAuction
 
+  def listing_fees
+    @listing_fees ||= MockAssociation.new
+  end
+
   def errors
     MockErrors.new
   end
+end
+
+class MockAssociation
+  def build(*); end
 end
 
 class MockErrors < Array
@@ -42,7 +51,8 @@ class BehaviorsEbayAuctionTest < ActiveSupport::TestCase
             subject.verify_item!
           end
         end
-        should_eventually "indicate additional fees" do
+        before_should "indicate additional fees" do
+          subject.listing_fees.expects(:build).twice
         end
       end
     end
