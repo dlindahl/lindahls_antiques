@@ -25,6 +25,7 @@ class EbayAuctionTest < ActiveSupport::TestCase
   should have_db_column(:winner_id)
 
   should belong_to(:antique)
+  should have_many(:listing_fees)
 
   should validate_presence_of(:title)
   should validate_presence_of(:description)

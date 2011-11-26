@@ -53,3 +53,9 @@ AdminUser.blueprint do
   email { 'admin@example.com' }
   password { 'password' }
 end
+
+Payment.blueprint do
+  reference_number { Faker::Lorem.words(2).join('') }
+  description { Faker::Lorem.paragraph }
+  a/mount { Sham.decimal }
+end

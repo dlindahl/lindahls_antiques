@@ -5,6 +5,7 @@ class EbayAuction < ActiveRecord::Base
   include Behaviors::EbayAuction
 
   belongs_to :antique
+  has_many :listing_fees, :as => :paymentable, :class_name => "Payment"
 
   validates_presence_of :antique_id, :allow_blank => false
   validates_presence_of :title, :description, :allow_blank => false
