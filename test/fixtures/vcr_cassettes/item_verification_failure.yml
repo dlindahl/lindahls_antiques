@@ -43,24 +43,22 @@
       x-ebay-esb-call-name:
       - VerifyAddItem
       x-ebay-esb-guid:
-      - urn:uuid:FBD3FD8DF65F899E491322097282794
+      - urn:uuid:8DF4B95E670525E45E1322540647779
       x-ebay-esb-siteid:
       - '0'
       date:
-      - Tue, 22 Nov 2011 21:01:16 GMT
+      - Sun, 27 Nov 2011 20:18:46 GMT
       content-length:
-      - '522'
+      - '444'
     body: !binary |-
-      H4sIAAAAAAAAAK2WXW/aMBSG7/crUO5LYoRGhYwrQqCLxFrERy92g1znEKw6
-      duQP1vz7OWmrSpvWMVwpsWLnnCevj+1zgm+eK9E7gTZcyUmE+knUA8lUwWU5
-      iXbbxdV1dEO+4AfQ/NBMiyK3UK3B1Eoa6HlfaSaR03IMj7QZ05qbMaTLlBqY
-      qcobgbQmInjLKzCWVjUZJAhd+Wsw2A7QOEFj9LV/PRz9wPG7DZ6yJ7JxjIEx
-      OG477fdbhWQ0HOH4rYNTx0VB5n5wP7tfz/fp7i5bzrM9GiKUJKPhfo1w/GKE
-      W+F5RhIcvz7hBYDpWoLvaAVk6pj12CXI0h79MI674daix5zWPi5NnvmobLKI
-      JH1P6nxf2ndMqkQR4O2a3N6pn5cTZtRCqXSzAGqdhgAt4YRbKgToZiWcCZfx
-      CgsA8WcoVpozyJym7VoHzywAwA82ZyESvvHyuPS3vRyR+1OszwkE+gBhQcsu
-      mlSczfu7pCU31iefDAwvJehg0OUzWx2VVRk3taAB69xRLnf3uRb0CS4HbNgR
-      CifOiMQHDPdouRUBKlKli5DFXGm1ouwpdbIIkkENZ7u61LSAz+A9UOE+BeSz
-      0snn7TP37D/j1CbcUEnf/b7V5hZ0RWWzAarZfxfFtvUl1p8hppy0a6DGl+1N
-      DYxTcX84gMbxby+76v7nrwb5BWxQxwupCAAA
+      H4sIAAAAAAAAAM1VTU/jMBC98yusHLjRfGylQHCN6AcSUpddlbYHLpW3GYJF
+      YgePsyL/nmnSVduFShxagZRD5nme3pt5UcyvXouc/QWLyuieF3YCj4FemlTp
+      rOfNpjdn596VOOFzsOqxvk7TWwfFBLA0GoERV2PPq6xO4I+sE1kqTKA/7kuE
+      gSmoCbRDT/CpKgCdLEoRBWF4Rk8UT6MgCc+TbtyJoh8P3N/08Ovls7iRKq8s
+      cH9V8JG1xqLg90/Gup+AKDMQd4ad5u5yZakzqKwl4/Vp5i4ZvCp0yIzdc66Q
+      YQlL9aggZRKZ1AyK0tXMyazD/R0RPjY6O6oiU5q5J2AWXiraABnYlmxHH5gU
+      RBgEwQX3NwC/B4pOubqpGpzcb2Mt+7e0sgBHKbPm9XbY8wKKZS7zCsSOW+63
+      4Fpmw/xnJJeINMZSOvpixKT1vJb+qGON4mcyNJV2dv9Ct44Pk+Bh9L5Hfq3Z
+      r4xvTBuk38awsg1131o/ajtInEfS/xbx/mf6iDHP27tAxN2YVNYF71cqT8WI
+      wMXg12S06M/uhuPRcBF2Qxo77i4mIffbpob1/rIQb3NGpjdrBgAA
     http_version: '1.1'

@@ -22,3 +22,6 @@
   span.icon { vertical-align: bottom; margin-right: 4px;} 
   &:hover{ @include icon-color(#000); }
 }
+form button {
+  @include dark-button;
+}

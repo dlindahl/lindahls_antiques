@@ -1,0 +1,25 @@
+The following listing fees will be charged by listing this Antique on eBay:
+
+<dl>
+  {{#listing_fees}}
+    <dt>
+      {{description}}
+    </dt>
+    <dd>
+      {{amount}}
+    </dd>
+  {{/listing_fees}}
+</dl>
+
+<form>
+  <fieldset class="buttons">
+    <ul>
+      <li>
+        <button id="accept">I accept these fees</button>
+      </li>
+      <li class="cancel">
+        <a href="{{cancel_path}}" id="cancel">Nevermind, I don't like these fees</a>
+      </li>
+    </ul>
+  </fieldset>
+</form>

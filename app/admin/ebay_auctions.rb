@@ -48,10 +48,16 @@ ActiveAdmin.register EbayAuction do
 
       @ebay_auction.verify_item!
 
-      if @ebay_auction.valid?
-        render :text => response.inspect
+      if @ebay_auction.errors.empty?
+        if @ebay_auction.listing_fees.any?{ |fee| fee.new_record? }
+          render 'admin/ebay_auctions/verify'
+        else
+          # Issue #1 - No listing fees, just list it.
+          raise "Not yet implemented"
+        end
       else
-        render :text => "errors!"
+        flash[:error] = resource_error_for @ebay_auction
+        redirect_to edit_admin_antique_ebay_auction_path( @ebay_auction.antique, @ebay_auction )
       end
     end
 

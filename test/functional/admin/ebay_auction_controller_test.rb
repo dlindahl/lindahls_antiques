@@ -113,9 +113,25 @@ class Admin::EbayAuctionsControllerTest < ActionController::TestCase
             end
             should assign_to(:ebay_auction)
             should "prompt the user to accept additional listing fees" do
-p @response.body
-              assert_select 'a[href="foo"]'
+              assert_select 'button#accept'
             end
+            should "allow the user to abort the listing" do
+              assert_select 'a#cancel'
+            end
+          end
+          context "with an unlistable EbayAuction" do
+            setup do
+              @ebay_auction = EbayAuction.make(:antique => @antique)
+              @ebay_auction.stubs(:to_ebay_item).returns(Ebay::Types::Item.new({}))
+              EbayAuction.stubs(:find_by_id).with(@ebay_auction.id.to_s).returns(@ebay_auction)
+
+              VCR.use_cassette('item_verification_failure') do
+                post :verify, :antique_id => @antique.id, :id => @ebay_auction.id
+              end
+            end
+            should assign_to(:ebay_auction)
+            should set_the_flash.to(/We found \d error/)
+            should redirect_to('EbayAuction#show') { edit_admin_antique_ebay_auction_path( @antique, @ebay_auction ) }
           end
         end
       end
